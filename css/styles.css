@@ -231,7 +231,7 @@ section h2 {
   font-size: 1.2em; }
 
 .interactive .axis .tick line {
-  stroke: #ccc; }
+  stroke: #eee; }
 
 .copy.intro {
   font-style: italic;
@@ -256,31 +256,36 @@ section h2 {
   border: solid 2px;
   border-radius: 6px;
   color: #fff;
-  cursor: pointer; }
-
-.copy.intro span.notification {
-  border-color: #1D8281;
-  background-color: #1D8281; }
+  cursor: pointer;
+  display: inline-block; }
 
 .copy.intro span.notification:hover, .copy.intro span.deadline:hover, .copy.intro span.time:hover {
-  background: none; }
+  color: #fff;
+  opacity: 0.8; }
 
-.copy.intro span.notification:hover {
-  color: #1D8281; }
+.copy.intro span.notification:hover, .copy.intro span.active.notification {
+  background-color: #1D8281; }
 
-.copy.intro span.deadline:hover {
-  color: #DB634F; }
+.copy.intro span.deadline:hover, .copy.intro span.active.deadline {
+  background-color: #DB634F; }
 
-.copy.intro span.time:hover {
-  color: #2a2a2a; }
+.copy.intro span.time:hover, .copy.intro span.active.time {
+  background-color: #2a2a2a; }
 
 .copy.intro span.deadline {
   border-color: #DB634F;
-  background-color: #DB634F; }
+  color: #DB634F; }
+
+.copy.intro span.notification {
+  border-color: #1D8281;
+  color: #1D8281; }
 
 .copy.intro span.time {
   border-color: #2a2a2a;
-  background-color: #2a2a2a; }
+  color: #2a2a2a; }
+
+.copy.intro span.time.active, .copy.intro span.deadline.active, .copy.intro span.notification.active {
+  color: #fff; }
 
 .interactive {
   font-family: "Open Sans", sans-serif;

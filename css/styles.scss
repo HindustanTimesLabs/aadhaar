@@ -298,7 +298,7 @@ section{
             }
             
             line{
-                stroke: #ccc;
+                stroke: #eee;
             }
         }
     }
@@ -335,30 +335,37 @@ section{
         border-radius: 6px;
         color: #fff;
         cursor: pointer;
+        display: inline-block;
+    }
+    
+    span.notification:hover, span.deadline:hover, span.time:hover{
+        color: #fff;
+        opacity: 0.8;
+    }
+    span.notification:hover,span.active.notification{
+        background-color: $notification;
+    }
+    span.deadline:hover,span.active.deadline{
+        background-color: $deadline;
+    }
+    span.time:hover,span.active.time{
+        background-color: #2a2a2a;
+    }
+
+    span.deadline{
+        border-color: $deadline;
+        color: $deadline;
     }
     span.notification{
         border-color: $notification;
-        background-color: $notification;
-    }
-    span.notification:hover, span.deadline:hover, span.time:hover{
-        background: none;
-    }
-    span.notification:hover{
         color: $notification;
-    }
-    span.deadline:hover{
-        color: $deadline;
-    }
-    span.time:hover{
-        color: #2a2a2a;
-    }
-    span.deadline{
-        border-color: $deadline;
-        background-color: $deadline;
     }
     span.time{
         border-color: #2a2a2a;
-        background-color: #2a2a2a;
+        color: #2a2a2a;
+    }
+    span.time.active,span.deadline.active,span.notification.active{
+        color: #fff;
     }
 }
 

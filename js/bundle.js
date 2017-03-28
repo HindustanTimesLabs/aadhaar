@@ -100,7 +100,7 @@
 	
 	var data = [
 	  {
-	    "scheme": "NREGA",
+	    "scheme": "MNREGA",
 	    "ministry": "",
 	    "notification": new Date (2017,0,3),
 	    "deadline_to_enroll": new Date (2017,2,31),
@@ -116,7 +116,7 @@
 	  //   "link": "http://pdsportal.nic.in/Files/Do%20Lr%20Sir_0001.pdf"
 	  // },
 	  {
-	    "scheme": "RTE/Sarva Shiksha Abhiyan",
+	    "scheme": "Sarva Shiksha Abhiyan",
 	    "ministry": "MINISTRY OF HUMAN RESOURCE DEVELOPMENT",
 	    "notification": new Date (2017,2,2),
 	    "deadline_to_enroll": new Date (2017,5,30),
@@ -330,7 +330,6 @@
 	})
 	sortedByNotification = _.sortBy(data,'notification')
 	sortedByDeadline = _.sortBy(data,'deadline_to_enroll')
-	
 	data = _.sortBy(data,'difference')
 	var date_format_axis = d3.timeFormat("%b '%y");
 	var date_format = d3.timeFormat("%d %b '%y");
@@ -368,10 +367,10 @@
 	lines = svg.append('g')
 	    .attr('class','line-group')
 	    .selectAll('.group')
-	    .data(data, function(d){ return d.scheme; })
+	    .data(sortedByNotification, function(d){ return d.scheme; })
 	    .enter()
 	    .append('g')
-	    .attr('class',function(d,i){console.log(d);return 'group g-'+i})
+	    .attr('class',function(d,i){return 'group g-'+i})
 	    .style('opacity',0.7)
 	    .attr('transform',function(d,i){return 'translate(0,'+(yScale(i))+")"})
 	
@@ -403,13 +402,14 @@
 	      .attr("class", "voronoi");
 	
 	voronoiGroup.selectAll("path")
-	  .data(data)
+	  .data(sortedByNotification)
 	  .enter()
 	  .append("rect")
 	  .attr('x','0')
-	  .attr('y',function(d,i){return yScale(i)-5})
+	  .attr('y',function(d,i){return yScale(i)-yScale.bandwidth()/2})
+	  .attr('class',function(d,i){return 'rect-'+i})
 	  .attr('width',width-margin.left-margin.right)
-	  .attr('height',15)
+	  .attr('height',yScale.bandwidth())
 	  .style('cursor','pointer')
 	  .on("mouseover", mouseover)
 	  .on("mouseout", mouseout)
@@ -485,40 +485,38 @@
 	    .duration(2000);
 	
 	$('.copy.intro span').on('click',function(){
+	  $('.copy.intro span').removeClass('active')
+	  $(this).addClass('active')
+	
 	  if ($(this).hasClass('notification')){
 	
 	    d3.selectAll('.group')
 	        .transition()
 	        .duration(1800)
-	      .attr('transform',function(d,i){return 'translate(0,'+yScale(parseInt(sortedByNotification.indexOf(d)))+")"})
+	        .attr('transform',function(d){return 'translate(0,'+yScale(parseInt(sortedByNotification.indexOf(d)))+")"})
 	
 	    d3.selectAll('.voronoi rect')
-	        .transition()
-	        .duration(1800)
-	      .attr('y',function(d,i){return yScale(parseInt(sortedByNotification.indexOf(d)))})
+	        .attr('y',function(d){ return yScale(sortedByNotification.indexOf(d))-(yScale.bandwidth()/2)})
 	
 	  } else if ($(this).hasClass('time')){
 	
 	    d3.selectAll('.group')
 	        .transition()
 	        .duration(1800)
-	      .attr('transform',function(d,i){return 'translate(0,'+yScale(parseInt(data.indexOf(d)))+")"})
+	        .attr('transform',function(d){return 'translate(0,'+yScale(parseInt(data.indexOf(d)))+")"})
 	
 	    d3.selectAll('.voronoi rect')
-	        .transition()
-	        .duration(1800)
-	      .attr('y',function(d,i){return yScale(parseInt(data.indexOf(d)))})
+	        .attr('y',function(d){return (yScale(data.indexOf(d)))-(yScale.bandwidth()/2)})
+	
 	  } else {
 	
 	    d3.selectAll('.group')
 	        .transition()
 	        .duration(1800)
-	        .attr('transform',function(d,i){return 'translate(0,'+yScale(parseInt(sortedByDeadline.indexOf(d)))+")"})
+	        .attr('transform',function(d){return 'translate(0,'+yScale(parseInt(sortedByDeadline.indexOf(d)))+")"})
 	
 	    d3.selectAll('.voronoi rect')
-	        .transition()
-	        .duration(1800)
-	        .attr('y',function(d,i){return yScale(parseInt(sortedByDeadline.indexOf(d)))})
+	        .attr('y',function(d){return (yScale(sortedByDeadline.indexOf(d))-(yScale.bandwidth()/2))})
 	  }
 	  
 	})
