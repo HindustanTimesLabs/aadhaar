@@ -1,7 +1,6 @@
 Scheme of “National Career Services” (hereafter referred to as the Scheme) involves expenditure from the Consolidated Fund of India
 
-Stipend to Trainees under the Scheme of Welfare for the Scheduled Castes and
-the Scheduled Tribes Job-seekers through Coaching, Guidance and Vocational Training implemented by the National Career Services Centres for the Scheduled Castes and the Scheduled Tribes (Erstwhile Coaching cum Guidance Centre for the Scheduled Castes and the Scheduled Tribes)
+Stipend to Trainees under the Scheme of Welfare for the Scheduled Castes and the Scheduled Tribes Job-seekers through Coaching, Guidance and Vocational Training implemented by the National Career Services Centres for the Scheduled Castes and the Scheduled Tribes (Erstwhile Coaching cum Guidance Centre for the Scheduled Castes and the Scheduled Tribes)
 
 24 Centers in India
 

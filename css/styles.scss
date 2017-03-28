@@ -8,6 +8,8 @@ $primary: #48a2d7;
 $sec1: #2880b9;
 $sec2: #e74c3c;
 $link: #008080;
+$notification: #1D8281;
+$deadline:  #DB634F;
 
 *{
     -webkit-box-sizing: border-box;
@@ -66,7 +68,7 @@ body{
     width: 91%;
     margin-left: auto;
     margin-right: auto;
-    max-width: 700px;
+    max-width: 750px;
     font-size: 1.25em;
     line-height: 1.5em;
     color: $text;
@@ -310,19 +312,59 @@ section{
 /* css for the viz */
 
 .notification{
-    fill: #123D5A;
+    fill: $notification;
 }
 
 .deadline{
-    fill: #CF6553;
+    fill: $deadline;
 }
+
 .interactive line{
     stroke-width: 1px;
     stroke: #909090;
 }
 
+.copy.intro{
+    line-height: 1.8em;
+}
+
+.copy.intro {
+    span{
+        padding: 0.1em 0.3em;
+        border: solid 2px;
+        border-radius: 6px;
+        color: #fff;
+        cursor: pointer;
+    }
+    span.notification{
+        border-color: $notification;
+        background-color: $notification;
+    }
+    span.notification:hover, span.deadline:hover, span.time:hover{
+        background: none;
+    }
+    span.notification:hover{
+        color: $notification;
+    }
+    span.deadline:hover{
+        color: $deadline;
+    }
+    span.time:hover{
+        color: #2a2a2a;
+    }
+    span.deadline{
+        border-color: $deadline;
+        background-color: $deadline;
+    }
+    span.time{
+        border-color: #2a2a2a;
+        background-color: #2a2a2a;
+    }
+}
+
 .interactive {
     font-family: $block;
+    text-align: center;
     .annotation-group{
         font-size: 0.8em;
         .white{
@@ -334,8 +376,12 @@ section{
             fill: #2a2a2a;
         }
     }
-    .voronoi path{
+    .voronoi rect{
         opacity: 0;
+        cursor: pointer;
+    }
+    .name{
+    font-size: 0.8em;
     }
 }
 
