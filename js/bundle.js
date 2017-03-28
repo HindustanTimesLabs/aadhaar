@@ -324,9 +324,12 @@
 	    "link": "http://egazette.nic.in/WriteReadData/2017/174851.pdf"
 	  }
 	]
+	
 	data.forEach(function(d){
 	  d.difference = d.deadline_to_enroll - d.notification
 	})
+	sortedByNotification = _.sortBy(data,'notification')
+	sortedByDeadline = _.sortBy(data,'deadline_to_enroll')
 	
 	data = _.sortBy(data,'difference')
 	var date_format_axis = d3.timeFormat("%b '%y");
@@ -342,9 +345,8 @@
 	var xScale = d3.scaleTime()
 	                .domain([new Date(2017, 0, 1), new Date(2018, 2, 31)])
 	                .range([0,width - margin.left - margin.right])
-	
-	var yScale = d3.scaleLinear()
-	                .domain([0,data.length])
+	var yScale = d3.scaleBand()
+	                .domain(Array.apply(null, {length: data.length}).map(Number.call, Number))
 	                .range([margin.top,height - margin.top - margin.bottom])
 	
 	var xAxis = d3.axisTop(xScale)
@@ -366,10 +368,10 @@
 	lines = svg.append('g')
 	    .attr('class','line-group')
 	    .selectAll('.group')
-	    .data(data)
+	    .data(data, function(d){ return d.scheme; })
 	    .enter()
 	    .append('g')
-	    .attr('class',function(d,i){return 'group g-'+i})
+	    .attr('class',function(d,i){console.log(d);return 'group g-'+i})
 	    .style('opacity',0.7)
 	    .attr('transform',function(d,i){return 'translate(0,'+(yScale(i))+")"})
 	
@@ -433,6 +435,7 @@
 	  .attr('class','annotation-deadline black')
 	
 	function mouseover(d,i){
+	
 	  d3.select('.g-'+i)
 	        .style('opacity',1)
 	        .selectAll('circle')
@@ -446,13 +449,13 @@
 	        .style('opacity',1)
 	        .moveToFront()
 	
-	      d3.selectAll('.annotation-notification')
-	        .text(date_format(d.data.notification))
-	        .attr('transform','translate('+(xScale(i)+(width*0.01))+","+(yScale(d.data.notification)+5)+")")
+	      // d3.selectAll('.annotation-notification')
+	      //   .text( date_format(d['notification']))
+	      //   .attr('transform','translate(' + (xScale(d.notification)+5) + "," + (yScale(i) + (width*0.01)) + ")")
 	
-	      d3.selectAll('.annotation-deadline')
-	        .text(date_format(d.data['deadline_to_enroll']))
-	        .attr('transform','translate('+(xScale(i)+(width*0.01))+","+(yScale(d.data['deadline_to_enroll'])+5)+")")
+	      // d3.selectAll('.annotation-deadline')
+	      //   .text(date_format(d['deadline_to_enroll']))
+	      //   .attr('transform','translate(' + (xScale(d['deadline_to_enroll'])+5)+ "," + (yScale(i)+(width*0.01)) + ")")
 	}
 	
 	function mouseout(d,i){
@@ -467,7 +470,58 @@
 	        .style('stroke-width','1px')
 	
 	}
-
+	
+	function slugify(text)
+	{
+	  return text.toString().toLowerCase()
+	    .replace(/\s+/g, '-')           // Replace spaces with -
+	    .replace(/[^\w\-]+/g, '')       // Remove all non-word chars
+	    .replace(/\-\-+/g, '-')         // Replace multiple - with single -
+	    .replace(/^-+/, '')             // Trim - from start of text
+	    .replace(/-+$/, '');            // Trim - from end of text
+	}
+	
+	var t = d3.transition()
+	    .duration(2000);
+	
+	$('.copy.intro span').on('click',function(){
+	  if ($(this).hasClass('notification')){
+	
+	    d3.selectAll('.group')
+	        .transition()
+	        .duration(1800)
+	      .attr('transform',function(d,i){return 'translate(0,'+yScale(parseInt(sortedByNotification.indexOf(d)))+")"})
+	
+	    d3.selectAll('.voronoi rect')
+	        .transition()
+	        .duration(1800)
+	      .attr('y',function(d,i){return yScale(parseInt(sortedByNotification.indexOf(d)))})
+	
+	  } else if ($(this).hasClass('time')){
+	
+	    d3.selectAll('.group')
+	        .transition()
+	        .duration(1800)
+	      .attr('transform',function(d,i){return 'translate(0,'+yScale(parseInt(data.indexOf(d)))+")"})
+	
+	    d3.selectAll('.voronoi rect')
+	        .transition()
+	        .duration(1800)
+	      .attr('y',function(d,i){return yScale(parseInt(data.indexOf(d)))})
+	  } else {
+	
+	    d3.selectAll('.group')
+	        .transition()
+	        .duration(1800)
+	        .attr('transform',function(d,i){return 'translate(0,'+yScale(parseInt(sortedByDeadline.indexOf(d)))+")"})
+	
+	    d3.selectAll('.voronoi rect')
+	        .transition()
+	        .duration(1800)
+	        .attr('y',function(d,i){return yScale(parseInt(sortedByDeadline.indexOf(d)))})
+	  }
+	  
+	})
 
 /***/ },
 /* 1 */
