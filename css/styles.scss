@@ -303,6 +303,8 @@ section{
          }
          .panel-top{
             width: 35%;
+            text-align: right;
+            padding-right: 1em;
          }
          .panel-bottom{
             width: 55%;
@@ -313,6 +315,9 @@ section{
             vertical-align: middle;
             font-size: 2em;
             opacity: 0;
+            
+         }
+         .panel.panel-expand,.scheme-desc{
             -moz-transition: all .1s linear;
             -webkit-transition: all .1s linear;
             -o-transition: all .1s linear;
@@ -329,14 +334,18 @@ section{
             font-weight: bold;
          }
         h2{
-            font-size: 1.1em;
+            font-size: 1em;
+            font-weight: 600;
+            line-height: 1.2em;
+            padding-bottom: 0.1em;
         }
         h3{
-            font-size: 1em;
-            color: #424242;
+            font-size: 0.9em;
+            color: #707070;
             font-weight: 300;
             padding-bottom: 0.5em;
             margin-bottom: 0.5em;
+            font-style: italic;
         }
         .scheme-desc{
             font-size: 0.9em;
@@ -345,7 +354,7 @@ section{
         }
 
         .chart{
-            margin-top: 2.5em;
+            margin-top: 2em;
             position: relative;
             .c-line{
                 height: 3px;
@@ -354,9 +363,9 @@ section{
             .annotation{
                 margin-bottom: 0;
                 position: absolute;
-                margin-top: 11px;
+                margin-top: 8px;
                 font-size: 0.8em;
-                    width: 50px;
+                width: 50px;
             }
             .annotation.ann-notif{
                  margin-left: -30px;
@@ -365,7 +374,7 @@ section{
                  margin-right: -10px;
             }
             .annotation.ann-info{
-                margin-top: -32px;
+                margin-top: -28px;
                 width: 80px;
                 line-height: 1em;
                 opacity: 0;
@@ -411,6 +420,7 @@ section{
              }
              .panel.panel-top{
                 width: 88%;
+                text-align: left;
              }
              .panel-top{
                 margin-right: 0;
@@ -451,6 +461,9 @@ section{
             -ms-transform: rotate(-180deg);
             /* Opera */
             -o-transform: rotate(-180deg);
+        }
+        .scheme-desc{
+                margin-top: 1em;
         }
     }
 }

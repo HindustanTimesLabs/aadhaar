@@ -4,60 +4,20 @@ var d3 = require('d3')
 var $ = require('jquery')
 var _ = require('underscore')
 
-
-d3.selection.prototype.tspans = function(lines, lh) {
-    return this.selectAll('tspan')
-        .data(lines)
-        .enter()
-        .append('tspan')
-        .text(function(d) { return d; })
-        .attr('x', 0)
-        .attr('dy', function(d,i) { return i ? lh || 15 : 0; });
-};
-
-d3.wordwrap = function(line, maxCharactersPerLine) {
-    var w = line.split(' '),
-        lines = [],
-        words = [],
-        maxChars = maxCharactersPerLine || 40,
-        l = 0;
-    w.forEach(function(d) {
-        if (l+d.length > maxChars) {
-            lines.push(words.join(' '));
-            words.length = 0;
-            l = 0;
-        }
-        l += d.length;
-        words.push(d);
-    });
-    if (words.length) {
-        lines.push(words.join(' '));
-    }
-    return lines;
-};
-
-d3.selection.prototype.moveToFront = function() {  
-      return this.each(function(){
-        this.parentNode.appendChild(this);
-      });
-    };
-
-d3.selection.prototype.moveToBack = function() {  
-    return this.each(function() { 
-        var firstChild = this.parentNode.firstChild; 
-        if (firstChild) { 
-            this.parentNode.insertBefore(this, firstChild); 
-        } 
-    });
-};
-
-
 var data = [
   {
     "scheme": "Mahatma Gandhi National Rural Employment Gurantee Act (MGNREGA)",
     "ministry": "Ministry of Rural Development",
     "notification": new Date (2017,0,3),
     "deadline_to_enroll": new Date (2017,2,31),
+    "desc": null,
+    "link": "http://nrega.nic.in/netnrega/writereaddata/Circulars/2001173479.pdf"
+  },
+  {
+    "scheme": "Central Sector Scheme of Stipend Component to Children in Special Training Centres",
+    "ministry": "Ministry of Labour and Employment",
+    "notification": new Date (2017,2,24),
+    "deadline_to_enroll": new Date (2017,8,30),
     "desc": null,
     "link": "http://nrega.nic.in/netnrega/writereaddata/Circulars/2001173479.pdf"
   },
@@ -232,7 +192,7 @@ var data = [
   {
     "scheme": "Army, Navy, Airforce Pensions",
     "ministry": "MINISTRY OF DEFENCE",
-    "notification": new Date(2017,2,30),
+    "notification": new Date(2017,1,30),
     "deadline_to_enroll": new Date(2017,4,30),
     "desc": null,
     "link": "http://egazette.nic.in/WriteReadData/2017/174639.pdf"
@@ -288,23 +248,17 @@ data = _.sortBy(data,'difference')
 var date_format_axis = d3.timeFormat("%d %b");
 
 
-var width = ($(window).width()>1000)?1000:($(window).width())
-var breakpoint = (width>800)?40:20;
-var height = 1200
-var margin = {top: 30, bottom: 40, left: (width<1000)?30:100, right: (width<1000)?20:30}
-var radius = 4
-var big_radius = 5.5
 var xScale = d3.scaleTime()
                 .domain([new Date(2017, 0, 1), new Date(2018, 2, 31)])
-                .range([0,width - margin.left - margin.right])
+                .range([0,1])
 var yScale = d3.scaleBand()
                 .domain(Array.apply(null, {length: data.length}).map(Number.call, Number))
-                .range([margin.top,height - margin.top - margin.bottom])
+                .range([0,1])
 
-var xAxis = d3.axisTop(xScale)
-                    .tickSize(-(height-margin.top-margin.bottom), 0, 0)
-                    .ticks(7)
-                    .tickFormat(function(d){return date_format_axis(d)})
+// var xAxis = d3.axisTop(xScale)
+//                     .tickSize(-(height-margin.top-margin.bottom), 0, 0)
+//                     .ticks(7)
+//                     .tickFormat(function(d){return date_format_axis(d)})
 
 lines = d3.select('.interactive')
           .append('div')
@@ -425,19 +379,6 @@ lines.append('p')
       .text(function(d){return d.desc})
       .style('height',0)
 
-
-// var growDiv = $(this).children()[0]
-// if ($(this).hasClass('show')) {
-//   growDiv.style.height=0
-//   $(this).removeClass('show')
-//   $(this).addClass('hide')
-
-// } else {
-//   growDiv.style.height = growDiv.scrollHeight+10+'px'
-//    $(this).removeClass('hide')
-//   $(this).addClass('show')
-// }
-
 function expandFunc(d){
   var growDiv = $(this).find('.scheme-desc')[0]
   if ($(this).hasClass('show')){
@@ -454,6 +395,7 @@ function expandFunc(d){
       .style('height',growDiv.scrollHeight+10+'px')
   }
 }
+
 // var svg = d3.select('.interactive')
 //             .append('svg')
 //             .attr('width',width)
@@ -585,42 +527,36 @@ function expandFunc(d){
 // var t = d3.transition()
 //     .duration(2000);
 
-// $('.copy.intro span').on('click',function(){
-//   $('.copy.intro span').removeClass('active')
-//   $(this).addClass('active')
+$('.copy.intro span').on('click',function(){
+  $('.copy.intro span').removeClass('active')
+  $(this).addClass('active')
 
-//   if ($(this).hasClass('notification')){
+  if ($(this).hasClass('notification')){
 
-//     d3.selectAll('.group')
-//         .transition()
-//         .duration(1800)
-//         .attr('transform',function(d){return 'translate(0,'+yScale(parseInt(sortedByNotification.indexOf(d)))+")"})
+    d3.selectAll('.group')
+        .transition()
+        .duration(1800)
+        .attr('transform',function(d){return 'translate(0,'+yScale(parseInt(sortedByNotification.indexOf(d)))+")"})
 
-//     d3.selectAll('.voronoi rect')
-//         .attr('y',function(d){ return yScale(sortedByNotification.indexOf(d))-(yScale.bandwidth()/2)})
+  } else if ($(this).hasClass('time')){
 
-//   } else if ($(this).hasClass('time')){
+    d3.selectAll('.group')
+        .transition()
+        .duration(1800)
+        .attr('transform',function(d){return 'translate(0,'+yScale(parseInt(data.indexOf(d)))+")"})
 
-//     d3.selectAll('.group')
-//         .transition()
-//         .duration(1800)
-//         .attr('transform',function(d){return 'translate(0,'+yScale(parseInt(data.indexOf(d)))+")"})
+  } else {
 
-//     d3.selectAll('.voronoi rect')
-//         .attr('y',function(d){return (yScale(data.indexOf(d)))-(yScale.bandwidth()/2)})
+    d3.selectAll('.group')
+        .transition()
+        .duration(1800)
+        .attr('transform',function(d){return 'translate(0,'+yScale(parseInt(sortedByDeadline.indexOf(d)))+")"})
 
-//   } else {
-
-//     d3.selectAll('.group')
-//         .transition()
-//         .duration(1800)
-//         .attr('transform',function(d){return 'translate(0,'+yScale(parseInt(sortedByDeadline.indexOf(d)))+")"})
-
-//     d3.selectAll('.voronoi rect')
-//         .attr('y',function(d){return (yScale(sortedByDeadline.indexOf(d))-(yScale.bandwidth()/2))})
-//   }
+  }
   
-// })
+})
+
+// function group
 
 function toTitleCase(str)
 {

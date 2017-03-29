@@ -236,7 +236,9 @@ section h2 {
     display: inline-block;
     vertical-align: top; }
   .interactive .group .panel-top {
-    width: 35%; }
+    width: 35%;
+    text-align: right;
+    padding-right: 1em; }
   .interactive .group .panel-bottom {
     width: 55%; }
   .interactive .group .panel.panel-expand {
@@ -244,7 +246,8 @@ section h2 {
     padding-top: 8px;
     vertical-align: middle;
     font-size: 2em;
-    opacity: 0;
+    opacity: 0; }
+  .interactive .group .panel.panel-expand, .interactive .group .scheme-desc {
     -moz-transition: all .1s linear;
     -webkit-transition: all .1s linear;
     -o-transition: all .1s linear;
@@ -259,19 +262,23 @@ section h2 {
     font-style: italic;
     font-weight: bold; }
   .interactive .group h2 {
-    font-size: 1.1em; }
-  .interactive .group h3 {
     font-size: 1em;
-    color: #424242;
+    font-weight: 600;
+    line-height: 1.2em;
+    padding-bottom: 0.1em; }
+  .interactive .group h3 {
+    font-size: 0.9em;
+    color: #707070;
     font-weight: 300;
     padding-bottom: 0.5em;
-    margin-bottom: 0.5em; }
+    margin-bottom: 0.5em;
+    font-style: italic; }
   .interactive .group .scheme-desc {
     font-size: 0.9em;
     margin-bottom: 0;
     overflow: hidden; }
   .interactive .group .chart {
-    margin-top: 2.5em;
+    margin-top: 2em;
     position: relative; }
     .interactive .group .chart .c-line {
       height: 3px;
@@ -279,7 +286,7 @@ section h2 {
     .interactive .group .chart .annotation {
       margin-bottom: 0;
       position: absolute;
-      margin-top: 11px;
+      margin-top: 8px;
       font-size: 0.8em;
       width: 50px; }
     .interactive .group .chart .annotation.ann-notif {
@@ -287,7 +294,7 @@ section h2 {
     .interactive .group .chart .annotation.ann-deadline {
       margin-right: -10px; }
     .interactive .group .chart .annotation.ann-info {
-      margin-top: -32px;
+      margin-top: -28px;
       width: 80px;
       line-height: 1em;
       opacity: 0;
@@ -320,7 +327,8 @@ section h2 {
         width: 100%;
         padding-right: 3em; }
       .interactive .group .panel.panel-top {
-        width: 88%; }
+        width: 88%;
+        text-align: left; }
       .interactive .group .panel-top {
         margin-right: 0; }
       .interactive .group .panel.panel-expand {
@@ -351,6 +359,9 @@ section h2 {
   -ms-transform: rotate(-180deg);
   /* Opera */
   -o-transform: rotate(-180deg); }
+
+.interactive .group.show .scheme-desc {
+  margin-top: 1em; }
 
 .copy.intro {
   font-style: italic;
