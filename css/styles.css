@@ -343,7 +343,10 @@ section h2 {
         background-color: #DB634F; }
     @media (max-width: 700px) {
       .interactive .group {
-        padding-bottom: 2em;
+        padding-bottom: 1em;
+        padding-top: 0.5em;
+        border-top: 1px solid #e9e9e9;
+        /*border-bottom: 0.5px solid #272727;*/
         padding-right: 0; }
         .interactive .group .panel.panel-bottom {
           display: block;
@@ -366,7 +369,11 @@ section h2 {
           padding-top: 2.5em; }
         .interactive .group h2 {
           font-size: 1em;
-          line-height: 1.4em; } }
+          line-height: 1.4em; }
+        .interactive .group .panel.panel-bottom .chart {
+          width: 85%; }
+        .interactive .group .panel.panel-expand {
+          opacity: 1; } }
   .interactive .group:hover {
     cursor: pointer; }
     .interactive .group:hover .panel.panel-expand, .interactive .group:hover .annotation.ann-info {
