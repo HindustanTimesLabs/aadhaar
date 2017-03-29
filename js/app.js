@@ -160,8 +160,8 @@ var data = [
   {
     "scheme": "National Career Services",
     "ministry": "MINISTRY OF LABOUR AND EMPLOYMENT",
-    "notification": new Date(2017,2,27),
-    "deadline_to_enroll": new Date(2017,2,27),
+    "notification": new Date(2017,1,27),
+    "deadline_to_enroll": new Date(2017,1,27),
     "desc": null,
     "link": "http://egazette.nic.in/WriteReadData/2017/174402.pdf"
   },
@@ -370,6 +370,32 @@ chart.append('div')
 chart.append('p')
       .attr('class','diff')
       .text(function(d){return ((d.deadline_to_enroll-d.notification)/(1000 * 3600 * 24)) + ' days'})
+      .style('left',function(d){
+        return (xScale(d.deadline_to_enroll)/(xScale(new Date(2018, 2, 31))))*100+"%"
+      })
+
+chart.append('p')
+      .attr('class','annotation ann-info notif')
+      .text(function(d){
+        if (date_format_axis(d.deadline_to_enroll) != date_format_axis(d.notification)) {
+          return 'Notification date'
+        } else {
+          return 'Notification date and deadline'
+        }
+      })
+      .style('left',function(d){
+        return (xScale(d.notification)/(xScale(new Date(2018, 2, 31))))*100+"%"
+      })
+
+chart.append('p')
+      .attr('class','annotation ann-info dd')
+      .text(function(d){
+        if (date_format_axis(d.deadline_to_enroll) != date_format_axis(d.notification)) {
+          return 'Deadline to enroll'
+        } else {
+          return ''
+        }
+      })
       .style('left',function(d){
         return (xScale(d.deadline_to_enroll)/(xScale(new Date(2018, 2, 31))))*100+"%"
       })

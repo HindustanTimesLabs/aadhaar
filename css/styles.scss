@@ -287,13 +287,13 @@ section{
     }
 }
 
-
 .interactive{
 
     .group{
         max-width: 1100px;
-        margin: 1em auto;
-            padding: 0.7em 3em 0 0.7em;
+        margin: 0.5em auto 0 auto;
+        /* position: fixed; */
+        padding: 0 3em 0 0.7em;
 
         text-align: left;
          /*box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);*/
@@ -305,19 +305,24 @@ section{
             width: 35%;
          }
          .panel-bottom{
-            width: 58%;
+            width: 55%;
          }
          .panel.panel-expand{
-            margin-right: 30px;
-            padding-top: 10px;
+            margin-right: 55px;
+            padding-top: 8px;
             vertical-align: middle;
             font-size: 2em;
             opacity: 0;
+            -moz-transition: all .1s linear;
+            -webkit-transition: all .1s linear;
+            -o-transition: all .1s linear;
+            transition: all .1s linear;
          }
          .diff{
             padding-bottom: 0;
             position: absolute;
-            padding-left: 1.5em;
+            width: 70px;
+            margin-left: 1.5em;
             margin-bottom: 0;
             margin-top: -9px;
             font-style: italic;
@@ -349,7 +354,7 @@ section{
             .annotation{
                 margin-bottom: 0;
                 position: absolute;
-                margin-top: -28px;
+                margin-top: 11px;
                 font-size: 0.8em;
                     width: 50px;
             }
@@ -358,6 +363,17 @@ section{
             }
             .annotation.ann-deadline{
                  margin-right: -10px;
+            }
+            .annotation.ann-info{
+                margin-top: -32px;
+                width: 80px;
+                line-height: 1em;
+                opacity: 0;
+                font-size: 0.7em;
+            }
+            .annotation.ann-info.notif{
+                text-align: right;
+                margin-left: -75px;
             }
             .c-line.chart-back{
                 background-color: #f0f0f0;
@@ -420,13 +436,22 @@ section{
         }
     }
     .group:hover{
-        .panel.panel-expand{
+        .panel.panel-expand,.annotation.ann-info{
             opacity: 1;
         }
         cursor: pointer;
     }
-    .group.expanded{
-
+    .group.show{
+        .panel.panel-expand{
+           padding-top: 12px;
+            -webkit-transform: rotate(-180deg);
+            /* Firefox */
+            -moz-transform: rotate(-180deg);
+            /* IE */
+            -ms-transform: rotate(-180deg);
+            /* Opera */
+            -o-transform: rotate(-180deg);
+        }
     }
 }
 
