@@ -288,13 +288,21 @@ section{
 }
 
 .interactive{
+    position: relative;
+    max-width: 1100px;
+    text-align: center;
+    margin: 0 auto;
 
     .group{
-        max-width: 1100px;
-        margin: 0.5em auto 0 auto;
-        /* position: fixed; */
+        -moz-transition: all .1s linear;
+            -webkit-transition: all .1s linear;
+            -o-transition: all .1s linear;
+            transition: all .1s linear;
+        width: 100%;
+        margin: 0 auto 0 auto;
+            /*position: absolute;*/
         padding: 0 3em 0 0.7em;
-
+        padding-top: 0.3em;
         text-align: left;
          /*box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);*/
          .panel{
@@ -451,9 +459,20 @@ section{
         }
         cursor: pointer;
     }
+    .group.g-0{
+        .annotation.ann-info.notif{
+            margin-left: -63px;
+        }
+    }
     .group.show{
+        border-top: solid 1px #eee;
+        border-bottom: solid 1px #eee;
+
+        padding-bottom: 0.2em;
+
         .panel.panel-expand{
            padding-top: 12px;
+           opacity: 1;
             -webkit-transform: rotate(-180deg);
             /* Firefox */
             -moz-transform: rotate(-180deg);
@@ -474,8 +493,6 @@ section{
 }
 
 /* css for the viz */
-
-
 
 .interactive line{
     stroke-width: 1px;

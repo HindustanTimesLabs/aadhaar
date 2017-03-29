@@ -254,131 +254,132 @@ var xScale = d3.scaleTime()
 var yScale = d3.scaleBand()
                 .domain(Array.apply(null, {length: data.length}).map(Number.call, Number))
                 .range([0,1])
+appendThings(sortedByNotification)
+function appendThings(selected_data){
+  lines = d3.select('.interactive')
+            .append('div')
+            .attr('class','line-group')
+            .selectAll('.group')
+            .data(selected_data, function(d){ return d.scheme; })
+            .enter()
+            .append('div')
+            .attr('class',function(d,i){return 'group g-'+sortedByNotification.indexOf(d)})
+            .on('click',expandFunc)
+  lines.style('opacity',0)
+  linesg1 = lines.append('div')
+                  .attr('class','panel panel-top')
 
-// var xAxis = d3.axisTop(xScale)
-//                     .tickSize(-(height-margin.top-margin.bottom), 0, 0)
-//                     .ticks(7)
-//                     .tickFormat(function(d){return date_format_axis(d)})
+  linesg1.append('h2')
+        .attr('class','scheme-name')
+        .text(function(d){return d.scheme})
 
-lines = d3.select('.interactive')
-          .append('div')
-          .attr('class','line-group')
-          .selectAll('.group')
-          .data(sortedByNotification, function(d){ return d.scheme; })
-          .enter()
-          .append('div')
-          .attr('class',function(d,i){return 'group g-'+i})
-          .on('click',expandFunc)
-
-linesg1 = lines.append('div')
-                .attr('class','panel panel-top')
-
-linesg1.append('h2')
-      .attr('class','scheme-name')
-      .text(function(d){return d.scheme})
-
-linesg1.append('h3')
-      .attr('class','ministry-name')
-      .text(function(d){return toTitleCase(d.ministry)})
+  linesg1.append('h3')
+        .attr('class','ministry-name')
+        .text(function(d){return toTitleCase(d.ministry)})
 
 
-expand = lines.append('div')
-      .attr('class','panel panel-expand')
-      .html('<i class="fa fa-caret-down" aria-hidden="true"></i>')
-      
+  expand = lines.append('div')
+        .attr('class','panel panel-expand')
+        .html('<i class="fa fa-caret-down" aria-hidden="true"></i>')
+        
 
-linesg2 = lines.append('div')
-      .attr('class','panel panel-bottom')
+  linesg2 = lines.append('div')
+        .attr('class','panel panel-bottom')
 
-chart = linesg2.append('div')
-      .attr('class','chart')
+  chart = linesg2.append('div')
+        .attr('class','chart')
 
-chart.append('div')
-      .attr('class','chart-back c-line')
-      .style('width',function(d){
-        return (xScale(d.deadline_to_enroll)/(xScale(new Date(2018, 2, 31))))*100+"%"
-      })
+  chart.append('div')
+        .attr('class','chart-back c-line')
+        .style('width',function(d){
+          return (xScale(d.deadline_to_enroll)/(xScale(new Date(2018, 2, 31))))*100+"%"
+        })
 
 
-chart.append('div')
-      .attr('class','chart-line c-line')
-      .style('left',function(d){
-        return (xScale(d.notification)/(xScale(new Date(2018, 2, 31))))*100+"%"
-      })
-      .style('width',function(d){
-        return (xScale(d.deadline_to_enroll)-xScale(d.notification))/(xScale(new Date(2018, 2, 31)))*100+"%"
-      })
+  chart.append('div')
+        .attr('class','chart-line c-line')
+        .style('left',function(d){
+          return (xScale(d.notification)/(xScale(new Date(2018, 2, 31))))*100+"%"
+        })
+        .style('width',function(d){
+          return (xScale(d.deadline_to_enroll)-xScale(d.notification))/(xScale(new Date(2018, 2, 31)))*100+"%"
+        })
 
-chart.append('div')
-      .attr('class','dot notification')
-      .style('left',function(d){
-        return (xScale(d.notification)/(xScale(new Date(2018, 2, 31))))*100+"%"
-      })
+  chart.append('div')
+        .attr('class','dot notification')
+        .style('left',function(d){
+          return (xScale(d.notification)/(xScale(new Date(2018, 2, 31))))*100+"%"
+        })
 
-chart.append('div')
-      .attr('class','dot deadline')
-      .style('left',function(d){
-        return (xScale(d.deadline_to_enroll)/(xScale(new Date(2018, 2, 31))))*100+"%"
-      })
+  chart.append('div')
+        .attr('class','dot deadline')
+        .style('left',function(d){
+          return (xScale(d.deadline_to_enroll)/(xScale(new Date(2018, 2, 31))))*100+"%"
+        })
 
-chart.append('p')
-      .attr('class','diff')
-      .text(function(d){return ((d.deadline_to_enroll-d.notification)/(1000 * 3600 * 24)) + ' days'})
-      .style('left',function(d){
-        return (xScale(d.deadline_to_enroll)/(xScale(new Date(2018, 2, 31))))*100+"%"
-      })
+  chart.append('p')
+        .attr('class','diff')
+        .text(function(d){return ((d.deadline_to_enroll-d.notification)/(1000 * 3600 * 24)) + ' days'})
+        .style('left',function(d){
+          return (xScale(d.deadline_to_enroll)/(xScale(new Date(2018, 2, 31))))*100+"%"
+        })
 
-chart.append('p')
-      .attr('class','annotation ann-info notif')
-      .text(function(d){
-        if (date_format_axis(d.deadline_to_enroll) != date_format_axis(d.notification)) {
-          return 'Notification date'
-        } else {
-          return 'Notification date and deadline'
-        }
-      })
-      .style('left',function(d){
-        return (xScale(d.notification)/(xScale(new Date(2018, 2, 31))))*100+"%"
-      })
+  chart.append('p')
+        .attr('class','annotation ann-info notif')
+        .text(function(d){
+          if (date_format_axis(d.deadline_to_enroll) != date_format_axis(d.notification)) {
+            return 'Notification date'
+          } else {
+            return 'Notification date and deadline'
+          }
+        })
+        .style('left',function(d){
+          return (xScale(d.notification)/(xScale(new Date(2018, 2, 31))))*100+"%"
+        })
 
-chart.append('p')
-      .attr('class','annotation ann-info dd')
-      .text(function(d){
-        if (date_format_axis(d.deadline_to_enroll) != date_format_axis(d.notification)) {
-          return 'Deadline to enroll'
-        } else {
-          return ''
-        }
-      })
-      .style('left',function(d){
-        return (xScale(d.deadline_to_enroll)/(xScale(new Date(2018, 2, 31))))*100+"%"
-      })
+  chart.append('p')
+        .attr('class','annotation ann-info dd')
+        .text(function(d){
+          if (date_format_axis(d.deadline_to_enroll) != date_format_axis(d.notification)) {
+            return 'Deadline to enroll'
+          } else {
+            return ''
+          }
+        })
+        .style('left',function(d){
+          return (xScale(d.deadline_to_enroll)/(xScale(new Date(2018, 2, 31))))*100+"%"
+        })
 
-chart.append('p')
-      .attr('class','annotation ann-notif')
-      .text(function(d){return date_format_axis(d.notification)})
-      .style('left',function(d){
-        return (xScale(d.notification)/(xScale(new Date(2018, 2, 31))))*100+"%"
-      })
+  chart.append('p')
+        .attr('class','annotation ann-notif')
+        .text(function(d){return date_format_axis(d.notification)})
+        .style('left',function(d){
+          return (xScale(d.notification)/(xScale(new Date(2018, 2, 31))))*100+"%"
+        })
 
-chart.append('p')
-      .attr('class','annotation ann-deadline')
-      .text(function(d){
-        if (date_format_axis(d.deadline_to_enroll) != date_format_axis(d.notification)) {
-          return date_format_axis(d.deadline_to_enroll)
-        } else {
-          return ''
-        }
-      })
-      .style('left',function(d){
-        return (xScale(d.deadline_to_enroll)/(xScale(new Date(2018, 2, 31))))*100+"%"
-      })
+  chart.append('p')
+        .attr('class','annotation ann-deadline')
+        .text(function(d){
+          if (date_format_axis(d.deadline_to_enroll) != date_format_axis(d.notification)) {
+            return date_format_axis(d.deadline_to_enroll)
+          } else {
+            return ''
+          }
+        })
+        .style('left',function(d){
+          return (xScale(d.deadline_to_enroll)/(xScale(new Date(2018, 2, 31))))*100+"%"
+        })
 
-lines.append('p')
-      .attr('class','scheme-desc')
-      .text(function(d){return d.desc})
-      .style('height',0)
+  lines.append('p')
+        .attr('class','scheme-desc')
+        .text(function(d){return d.desc})
+        .style('height',0)
 
+  lines.transition()
+      .duration(1200)
+      .style('opacity',1)
+
+}
 function expandFunc(d){
   var growDiv = $(this).find('.scheme-desc')[0]
   if ($(this).hasClass('show')){
@@ -396,137 +397,6 @@ function expandFunc(d){
   }
 }
 
-// var svg = d3.select('.interactive')
-//             .append('svg')
-//             .attr('width',width)
-//             .attr('height',height)
-//             .append('g')
-//             .attr('transform','translate('+(margin.left)+","+margin.top+")")
-
-// svg.append('g')
-//     .call(xAxis)
-//     .attr('class','axis')
-
-// lines = svg.append('g')
-//     .attr('class','line-group')
-//     .selectAll('.group')
-//     .data(sortedByNotification, function(d){ return d.scheme; })
-//     .enter()
-//     .append('g')
-//     .attr('class',function(d,i){return 'group g-'+i})
-//     .style('opacity',0.7)
-//     .attr('transform',function(d,i){return 'translate(0,'+(yScale(i))+")"})
-
-// lines.append('line')
-//       .attr('y1',0)
-//       .attr('y2',0)
-//       .attr('x1',function(d){return xScale(d['deadline_to_enroll'])})
-//       .attr('x2',function(d){return xScale(d['notification'])})
-//       .style('stroke-width','1px')
-
-// lines.append('circle')
-//       .attr('cx',function(d){return xScale(d.notification)})
-//       .attr('r',radius)
-//       .attr('class','notification')
-
-// lines.append('circle')
-//       .attr('cx',function(d){return xScale(d['deadline_to_enroll'])})
-//       .attr('r',radius)
-//       .attr('class','deadline')
-
-// lines.append('g')
-//       .attr('class','name')
-//       .append('text')
-//       .text('')
-//       .attr('transform',function(d,i){return 'translate('+(xScale(d['deadline_to_enroll'])+15)+','+0+')'})
-//       .tspans(function(d){return d3.wordwrap(d.scheme, breakpoint)}) //wrap after 20 char
-
-// var voronoiGroup = svg.append("g")
-//       .attr("class", "voronoi");
-
-// voronoiGroup.selectAll("path")
-//   .data(sortedByNotification)
-//   .enter()
-//   .append("rect")
-//   .attr('x','0')
-//   .attr('y',function(d,i){return yScale(i)-yScale.bandwidth()/2})
-//   .attr('class',function(d,i){return 'rect-'+i})
-//   .attr('width',width-margin.left-margin.right)
-//   .attr('height',yScale.bandwidth())
-//   .style('cursor','pointer')
-//   .on("mouseover", mouseover)
-//   .on("mouseout", mouseout)
-
-// annotation1 = svg.append('g')
-//   .attr('class','annotation-group')
-//   .style('opacity',0)
-
-// annotation2 = svg.append('g')
-//   .attr('class','annotation-group')
-//   .style('opacity',0)
-
-// annotation1.append('text')
-//   .attr('class','annotation-notification white')
-
-// annotation1.append('text')
-//   .attr('class','annotation-notification black')
-
-// annotation2.append('text')
-//   .attr('class','annotation-deadline white')
-
-// annotation2.append('text')
-//   .attr('class','annotation-deadline black')
-
-// function mouseover(d,i){
-
-//   d3.select('.g-'+i)
-//         .style('opacity',1)
-//         .selectAll('circle')
-//         .attr('r',big_radius)
-
-//   d3.select('.g-'+i)
-//         .selectAll('line')
-//         .style('stroke-width','2px')
-
-//    d3.selectAll('.annotation-group')
-//         .style('opacity',1)
-//         .moveToFront()
-
-//       // d3.selectAll('.annotation-notification')
-//       //   .text( date_format(d['notification']))
-//       //   .attr('transform','translate(' + (xScale(d.notification)+5) + "," + (yScale(i) + (width*0.01)) + ")")
-
-//       // d3.selectAll('.annotation-deadline')
-//       //   .text(date_format(d['deadline_to_enroll']))
-//       //   .attr('transform','translate(' + (xScale(d['deadline_to_enroll'])+5)+ "," + (yScale(i)+(width*0.01)) + ")")
-// }
-
-// function mouseout(d,i){
-//    d3.select('.g-'+i)
-//         .style('opacity',0.7)
-//         .selectAll('circle')
-//         .attr('r',radius)
-
-//     d3.select('.g-'+i)
-//         .style('opacity',0.7)
-//         .selectAll('line')
-//         .style('stroke-width','1px')
-
-// }
-
-// function slugify(text)
-// {
-//   return text.toString().toLowerCase()
-//     .replace(/\s+/g, '-')           // Replace spaces with -
-//     .replace(/[^\w\-]+/g, '')       // Remove all non-word chars
-//     .replace(/\-\-+/g, '-')         // Replace multiple - with single -
-//     .replace(/^-+/, '')             // Trim - from start of text
-//     .replace(/-+$/, '');            // Trim - from end of text
-// }
-
-// var t = d3.transition()
-//     .duration(2000);
-
 $('.copy.intro span').on('click',function(){
   $('.copy.intro span').removeClass('active')
   $(this).addClass('active')
@@ -535,23 +405,50 @@ $('.copy.intro span').on('click',function(){
 
     d3.selectAll('.group')
         .transition()
-        .duration(1800)
-        .attr('transform',function(d){return 'translate(0,'+yScale(parseInt(sortedByNotification.indexOf(d)))+")"})
+        .duration(500)
+        .style('opacity',0)
+    
+    d3.select('.line-group')
+      .transition()
+      .delay(600)
+      .remove()
+    setTimeout(function(){
+      appendThings(sortedByNotification)
+    },650)
+    
 
   } else if ($(this).hasClass('time')){
 
     d3.selectAll('.group')
         .transition()
-        .duration(1800)
-        .attr('transform',function(d){return 'translate(0,'+yScale(parseInt(data.indexOf(d)))+")"})
+        .duration(500)
+        .style('opacity',0)
+
+     d3.select('.line-group')
+      .transition()
+      .delay(600)
+      .remove()
+
+    setTimeout(function(){
+      appendThings(data)
+    },650)
+    
 
   } else {
 
     d3.selectAll('.group')
         .transition()
-        .duration(1800)
-        .attr('transform',function(d){return 'translate(0,'+yScale(parseInt(sortedByDeadline.indexOf(d)))+")"})
+        .duration(500)
+        .style('opacity',0)
 
+     d3.select('.line-group')
+      .transition()
+      .delay(600)
+      .remove()
+
+    setTimeout(function(){
+      appendThings(sortedByDeadline)
+    },650)
   }
   
 })
