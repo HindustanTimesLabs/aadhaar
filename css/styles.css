@@ -242,7 +242,8 @@ section h2 {
     margin-right: 30px;
     padding-top: 10px;
     vertical-align: middle;
-    font-size: 2em; }
+    font-size: 2em;
+    opacity: 0; }
   .interactive .group .diff {
     padding-bottom: 0;
     position: absolute;
@@ -261,7 +262,8 @@ section h2 {
     margin-bottom: 0.5em; }
   .interactive .group .scheme-desc {
     font-size: 0.9em;
-    margin-bottom: 0; }
+    margin-bottom: 0;
+    overflow: hidden; }
   .interactive .group .chart {
     margin-top: 2.5em;
     position: relative; }
@@ -279,7 +281,7 @@ section h2 {
     .interactive .group .chart .annotation.ann-deadline {
       margin-right: -10px; }
     .interactive .group .chart .c-line.chart-back {
-      background-color: #eee; }
+      background-color: #f0f0f0; }
     .interactive .group .chart .c-line.chart-line {
       background-color: #5E5E5E;
       height: 4px; }
@@ -294,20 +296,36 @@ section h2 {
       background-color: #1D8281; }
     .interactive .group .chart .dot.deadline {
       background-color: #DB634F; }
-  @media (max-width: 1000px) {
+  @media (max-width: 700px) {
     .interactive .group {
-      max-width: 500px;
-      padding-bottom: 2em; }
-      .interactive .group .panel.panel-top, .interactive .group .panel.panel-bottom {
+      padding-bottom: 2em;
+      padding-right: 0; }
+      .interactive .group .panel.panel-bottom {
         display: block;
-        width: 100%; }
-      .interactive .group .panel-expand {
-        display: none; }
+        width: 100%;
+        padding-right: 3em; }
+      .interactive .group .panel.panel-top {
+        width: 88%; }
       .interactive .group .panel-top {
+        margin-right: 0; }
+      .interactive .group .panel.panel-expand {
         margin-right: 0; }
       .interactive .group h3 {
         padding-bottom: 0.5em;
-        margin-bottom: 0.5em; } }
+        margin-bottom: 0.5em;
+        font-size: 0.9em;
+        line-height: 1.4em; }
+      .interactive .group .scheme-desc {
+        padding: 0.2em;
+        padding-top: 2.5em; }
+      .interactive .group h2 {
+        font-size: 1em;
+        line-height: 1.4em; } }
+
+.interactive .group:hover {
+  cursor: pointer; }
+  .interactive .group:hover .panel.panel-expand {
+    opacity: 1; }
 
 .copy.intro {
   font-style: italic;
@@ -322,7 +340,7 @@ section h2 {
   line-height: 1.8em; }
 
 .copy.intro span {
-  padding: 0.1em 0.3em;
+  padding: 2px 0.3em;
   border: solid 2px;
   border-radius: 6px;
   color: #fff;

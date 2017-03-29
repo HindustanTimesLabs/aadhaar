@@ -360,6 +360,7 @@
 	          .enter()
 	          .append('div')
 	          .attr('class',function(d,i){return 'group g-'+i})
+	          .on('click',expandFunc)
 	
 	linesg1 = lines.append('div')
 	                .attr('class','panel panel-top')
@@ -372,13 +373,11 @@
 	      .attr('class','ministry-name')
 	      .text(function(d){return toTitleCase(d.ministry)})
 	
-	linesg1.append('p')
-	      .attr('class','scheme-desc')
-	      .text(function(d){return d.desc})
 	
 	expand = lines.append('div')
 	      .attr('class','panel panel-expand')
 	      .html('<i class="fa fa-caret-down" aria-hidden="true"></i>')
+	      
 	
 	linesg2 = lines.append('div')
 	      .attr('class','panel panel-bottom')
@@ -431,12 +430,9 @@
 	chart.append('p')
 	      .attr('class','annotation ann-deadline')
 	      .text(function(d){
-	        console.log(d)
 	        if (date_format_axis(d.deadline_to_enroll) != date_format_axis(d.notification)) {
-	          
 	          return date_format_axis(d.deadline_to_enroll)
 	        } else {
-	          console.log('jokes')
 	          return ''
 	        }
 	      })
@@ -444,6 +440,40 @@
 	        return (xScale(d.deadline_to_enroll)/(xScale(new Date(2018, 2, 31))))*100+"%"
 	      })
 	
+	lines.append('p')
+	      .attr('class','scheme-desc')
+	      .text(function(d){return d.desc})
+	      .style('height',0)
+	
+	
+	// var growDiv = $(this).children()[0]
+	// if ($(this).hasClass('show')) {
+	//   growDiv.style.height=0
+	//   $(this).removeClass('show')
+	//   $(this).addClass('hide')
+	
+	// } else {
+	//   growDiv.style.height = growDiv.scrollHeight+10+'px'
+	//    $(this).removeClass('hide')
+	//   $(this).addClass('show')
+	// }
+	
+	function expandFunc(d){
+	  var growDiv = $(this).find('.scheme-desc')[0]
+	  if ($(this).hasClass('show')){
+	    $(this).removeClass('show')
+	    d3.select(growDiv)
+	      .transition()
+	      .duration(500)
+	      .style('height',0+'px')
+	  } else {
+	    $(this).addClass('show')
+	    d3.select(growDiv)
+	      .transition()
+	      .duration(500)
+	      .style('height',growDiv.scrollHeight+10+'px')
+	  }
+	}
 	// var svg = d3.select('.interactive')
 	//             .append('svg')
 	//             .attr('width',width)

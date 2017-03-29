@@ -312,6 +312,7 @@ section{
             padding-top: 10px;
             vertical-align: middle;
             font-size: 2em;
+            opacity: 0;
          }
          .diff{
             padding-bottom: 0;
@@ -335,6 +336,7 @@ section{
         .scheme-desc{
             font-size: 0.9em;
             margin-bottom: 0;
+            overflow: hidden;
         }
 
         .chart{
@@ -358,7 +360,7 @@ section{
                  margin-right: -10px;
             }
             .c-line.chart-back{
-                background-color: #eee;
+                background-color: #f0f0f0;
             }
 
             .c-line.chart-line{
@@ -383,25 +385,48 @@ section{
                 background-color: $deadline;
             }
         }
-        @media(max-width: 1000px){
-            max-width: 500px;
+        @media(max-width: 700px){
             padding-bottom: 2em;
-             .panel.panel-top,.panel.panel-bottom{
+            padding-right: 0;
+            .panel.panel-bottom{
                 display: block;
                 width: 100%;
+                padding-right: 3em;
              }
-             .panel-expand{
-                display: none;
+             .panel.panel-top{
+                width: 88%;
              }
              .panel-top{
                 margin-right: 0;
              }
-             
+             .panel.panel-expand{
+                margin-right: 0;
+             }
+                
              h3{
                 padding-bottom: 0.5em;
                 margin-bottom: 0.5em; 
+                font-size: 0.9em;
+                line-height: 1.4em;
              }
+             .scheme-desc{
+                padding: 0.2em;
+                padding-top: 2.5em;
+             }
+             h2{
+                font-size: 1em;
+                line-height: 1.4em;
+            }
         }
+    }
+    .group:hover{
+        .panel.panel-expand{
+            opacity: 1;
+        }
+        cursor: pointer;
+    }
+    .group.expanded{
+
     }
 }
 
@@ -425,7 +450,7 @@ section{
 
 .copy.intro {
     span{
-        padding: 0.1em 0.3em;
+        padding: 2px 0.3em;
         border: solid 2px;
         border-radius: 6px;
         color: #fff;
