@@ -68,7 +68,7 @@ body{
     width: 91%;
     margin-left: auto;
     margin-right: auto;
-    max-width: 750px;
+    max-width: 800px;
     font-size: 1.25em;
     line-height: 1.5em;
     color: $text;
@@ -142,6 +142,7 @@ h3.byline.dateline{
 .nav {
     color: white;
     height: 40px;
+    z-index: 1000;
     background-color: $nav;
     width: 100%;
     padding: 0.2em;
@@ -288,18 +289,118 @@ section{
 
 
 .interactive{
-    path.domain{
-        display: none;
-    }
-    .axis{
-        .tick{ 
-            text{
-                font-size: 1.2em;
+
+    .group{
+        max-width: 1100px;
+        margin: 1em auto;
+            padding: 0.7em 3em 0 0.7em;
+
+        text-align: left;
+         /*box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);*/
+         .panel{
+            display: inline-block;
+            vertical-align: top;
+         }
+         .panel-top{
+            width: 35%;
+         }
+         .panel-bottom{
+            width: 58%;
+         }
+         .panel.panel-expand{
+            margin-right: 30px;
+            padding-top: 10px;
+            vertical-align: middle;
+            font-size: 2em;
+         }
+         .diff{
+            padding-bottom: 0;
+            position: absolute;
+            padding-left: 1.5em;
+            margin-bottom: 0;
+            margin-top: -9px;
+            font-style: italic;
+            font-weight: bold;
+         }
+        h2{
+            font-size: 1.1em;
+        }
+        h3{
+            font-size: 1em;
+            color: #424242;
+            font-weight: 300;
+            padding-bottom: 0.5em;
+            margin-bottom: 0.5em;
+        }
+        .scheme-desc{
+            font-size: 0.9em;
+            margin-bottom: 0;
+        }
+
+        .chart{
+            margin-top: 2.5em;
+            position: relative;
+            .c-line{
+                height: 3px;
+                position: absolute;
             }
-            
-            line{
-                stroke: #eee;
+            .annotation{
+                margin-bottom: 0;
+                position: absolute;
+                margin-top: -28px;
+                font-size: 0.8em;
+                    width: 50px;
             }
+            .annotation.ann-notif{
+                 margin-left: -30px;
+            }
+            .annotation.ann-deadline{
+                 margin-right: -10px;
+            }
+            .c-line.chart-back{
+                background-color: #eee;
+            }
+
+            .c-line.chart-line{
+                background-color: #5E5E5E;
+                height: 4px;
+            }
+
+            .dot{
+                position: absolute;
+                height: 15px;
+                width: 15px;
+                border-radius: 50%;
+                margin-top: -6px;
+                border: solid 1px #ddd;
+            }
+
+            .dot.notification{
+                background-color: $notification;
+            }
+
+            .dot.deadline{
+                background-color: $deadline;
+            }
+        }
+        @media(max-width: 1000px){
+            max-width: 500px;
+            padding-bottom: 2em;
+             .panel.panel-top,.panel.panel-bottom{
+                display: block;
+                width: 100%;
+             }
+             .panel-expand{
+                display: none;
+             }
+             .panel-top{
+                margin-right: 0;
+             }
+             
+             h3{
+                padding-bottom: 0.5em;
+                margin-bottom: 0.5em; 
+             }
         }
     }
 }
@@ -311,13 +412,7 @@ section{
 
 /* css for the viz */
 
-.notification{
-    fill: $notification;
-}
 
-.deadline{
-    fill: $deadline;
-}
 
 .interactive line{
     stroke-width: 1px;
@@ -372,24 +467,6 @@ section{
 .interactive {
     font-family: $block;
     text-align: center;
-    .annotation-group{
-        font-size: 0.8em;
-        .white{
-            fill: #fff;
-            stroke: #fff;
-            stroke-width: 7.5px;
-        }
-        .black{
-            fill: #2a2a2a;
-        }
-    }
-    .voronoi rect{
-        opacity: 0;
-        cursor: pointer;
-    }
-    .name{
-    font-size: 0.8em;
-    }
 }
 
 @media(max-width: 700px){

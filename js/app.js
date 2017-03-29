@@ -54,8 +54,8 @@ d3.selection.prototype.moveToBack = function() {
 
 var data = [
   {
-    "scheme": "MNREGA",
-    "ministry": "",
+    "scheme": "Mahatma Gandhi National Rural Employment Gurantee Act (MGNREGA)",
+    "ministry": "Ministry of Rural Development",
     "notification": new Date (2017,0,3),
     "deadline_to_enroll": new Date (2017,2,31),
     "desc": null,
@@ -285,8 +285,7 @@ data.forEach(function(d){
 sortedByNotification = _.sortBy(data,'notification')
 sortedByDeadline = _.sortBy(data,'deadline_to_enroll')
 data = _.sortBy(data,'difference')
-var date_format_axis = d3.timeFormat("%b '%y");
-var date_format = d3.timeFormat("%d %b '%y");
+var date_format_axis = d3.timeFormat("%d %b");
 
 
 var width = ($(window).width()>1000)?1000:($(window).width())
@@ -307,170 +306,267 @@ var xAxis = d3.axisTop(xScale)
                     .ticks(7)
                     .tickFormat(function(d){return date_format_axis(d)})
 
-var svg = d3.select('.interactive')
-            .append('svg')
-            .attr('width',width)
-            .attr('height',height)
-            .append('g')
-            .attr('transform','translate('+(margin.left)+","+margin.top+")")
+lines = d3.select('.interactive')
+          .append('div')
+          .attr('class','line-group')
+          .selectAll('.group')
+          .data(sortedByNotification, function(d){ return d.scheme; })
+          .enter()
+          .append('div')
+          .attr('class',function(d,i){return 'group g-'+i})
 
-svg.append('g')
-    .call(xAxis)
-    .attr('class','axis')
+linesg1 = lines.append('div')
+                .attr('class','panel panel-top')
 
-lines = svg.append('g')
-    .attr('class','line-group')
-    .selectAll('.group')
-    .data(sortedByNotification, function(d){ return d.scheme; })
-    .enter()
-    .append('g')
-    .attr('class',function(d,i){return 'group g-'+i})
-    .style('opacity',0.7)
-    .attr('transform',function(d,i){return 'translate(0,'+(yScale(i))+")"})
+linesg1.append('h2')
+      .attr('class','scheme-name')
+      .text(function(d){return d.scheme})
 
-lines.append('line')
-      .attr('y1',0)
-      .attr('y2',0)
-      .attr('x1',function(d){return xScale(d['deadline_to_enroll'])})
-      .attr('x2',function(d){return xScale(d['notification'])})
-      .style('stroke-width','1px')
+linesg1.append('h3')
+      .attr('class','ministry-name')
+      .text(function(d){return toTitleCase(d.ministry)})
 
-lines.append('circle')
-      .attr('cx',function(d){return xScale(d.notification)})
-      .attr('r',radius)
-      .attr('class','notification')
+linesg1.append('p')
+      .attr('class','scheme-desc')
+      .text(function(d){return d.desc})
 
-lines.append('circle')
-      .attr('cx',function(d){return xScale(d['deadline_to_enroll'])})
-      .attr('r',radius)
-      .attr('class','deadline')
+expand = lines.append('div')
+      .attr('class','panel panel-expand')
+      .html('<i class="fa fa-caret-down" aria-hidden="true"></i>')
 
-lines.append('g')
-      .attr('class','name')
-      .append('text')
-      .text('')
-      .attr('transform',function(d,i){return 'translate('+(xScale(d['deadline_to_enroll'])+15)+','+0+')'})
-      .tspans(function(d){return d3.wordwrap(d.scheme, breakpoint)}) //wrap after 20 char
+linesg2 = lines.append('div')
+      .attr('class','panel panel-bottom')
 
-var voronoiGroup = svg.append("g")
-      .attr("class", "voronoi");
+chart = linesg2.append('div')
+      .attr('class','chart')
 
-voronoiGroup.selectAll("path")
-  .data(sortedByNotification)
-  .enter()
-  .append("rect")
-  .attr('x','0')
-  .attr('y',function(d,i){return yScale(i)-yScale.bandwidth()/2})
-  .attr('class',function(d,i){return 'rect-'+i})
-  .attr('width',width-margin.left-margin.right)
-  .attr('height',yScale.bandwidth())
-  .style('cursor','pointer')
-  .on("mouseover", mouseover)
-  .on("mouseout", mouseout)
+chart.append('div')
+      .attr('class','chart-back c-line')
+      .style('width',function(d){
+        return (xScale(d.deadline_to_enroll)/(xScale(new Date(2018, 2, 31))))*100+"%"
+      })
 
-annotation1 = svg.append('g')
-  .attr('class','annotation-group')
-  .style('opacity',0)
 
-annotation2 = svg.append('g')
-  .attr('class','annotation-group')
-  .style('opacity',0)
+chart.append('div')
+      .attr('class','chart-line c-line')
+      .style('left',function(d){
+        return (xScale(d.notification)/(xScale(new Date(2018, 2, 31))))*100+"%"
+      })
+      .style('width',function(d){
+        return (xScale(d.deadline_to_enroll)-xScale(d.notification))/(xScale(new Date(2018, 2, 31)))*100+"%"
+      })
 
-annotation1.append('text')
-  .attr('class','annotation-notification white')
+chart.append('div')
+      .attr('class','dot notification')
+      .style('left',function(d){
+        return (xScale(d.notification)/(xScale(new Date(2018, 2, 31))))*100+"%"
+      })
 
-annotation1.append('text')
-  .attr('class','annotation-notification black')
+chart.append('div')
+      .attr('class','dot deadline')
+      .style('left',function(d){
+        return (xScale(d.deadline_to_enroll)/(xScale(new Date(2018, 2, 31))))*100+"%"
+      })
 
-annotation2.append('text')
-  .attr('class','annotation-deadline white')
+chart.append('p')
+      .attr('class','diff')
+      .text(function(d){return ((d.deadline_to_enroll-d.notification)/(1000 * 3600 * 24)) + ' days'})
+      .style('left',function(d){
+        return (xScale(d.deadline_to_enroll)/(xScale(new Date(2018, 2, 31))))*100+"%"
+      })
 
-annotation2.append('text')
-  .attr('class','annotation-deadline black')
+chart.append('p')
+      .attr('class','annotation ann-notif')
+      .text(function(d){return date_format_axis(d.notification)})
+      .style('left',function(d){
+        return (xScale(d.notification)/(xScale(new Date(2018, 2, 31))))*100+"%"
+      })
 
-function mouseover(d,i){
+chart.append('p')
+      .attr('class','annotation ann-deadline')
+      .text(function(d){
+        console.log(d)
+        if (date_format_axis(d.deadline_to_enroll) != date_format_axis(d.notification)) {
+          
+          return date_format_axis(d.deadline_to_enroll)
+        } else {
+          console.log('jokes')
+          return ''
+        }
+      })
+      .style('left',function(d){
+        return (xScale(d.deadline_to_enroll)/(xScale(new Date(2018, 2, 31))))*100+"%"
+      })
 
-  d3.select('.g-'+i)
-        .style('opacity',1)
-        .selectAll('circle')
-        .attr('r',big_radius)
+// var svg = d3.select('.interactive')
+//             .append('svg')
+//             .attr('width',width)
+//             .attr('height',height)
+//             .append('g')
+//             .attr('transform','translate('+(margin.left)+","+margin.top+")")
 
-  d3.select('.g-'+i)
-        .selectAll('line')
-        .style('stroke-width','2px')
+// svg.append('g')
+//     .call(xAxis)
+//     .attr('class','axis')
 
-   d3.selectAll('.annotation-group')
-        .style('opacity',1)
-        .moveToFront()
+// lines = svg.append('g')
+//     .attr('class','line-group')
+//     .selectAll('.group')
+//     .data(sortedByNotification, function(d){ return d.scheme; })
+//     .enter()
+//     .append('g')
+//     .attr('class',function(d,i){return 'group g-'+i})
+//     .style('opacity',0.7)
+//     .attr('transform',function(d,i){return 'translate(0,'+(yScale(i))+")"})
 
-      // d3.selectAll('.annotation-notification')
-      //   .text( date_format(d['notification']))
-      //   .attr('transform','translate(' + (xScale(d.notification)+5) + "," + (yScale(i) + (width*0.01)) + ")")
+// lines.append('line')
+//       .attr('y1',0)
+//       .attr('y2',0)
+//       .attr('x1',function(d){return xScale(d['deadline_to_enroll'])})
+//       .attr('x2',function(d){return xScale(d['notification'])})
+//       .style('stroke-width','1px')
 
-      // d3.selectAll('.annotation-deadline')
-      //   .text(date_format(d['deadline_to_enroll']))
-      //   .attr('transform','translate(' + (xScale(d['deadline_to_enroll'])+5)+ "," + (yScale(i)+(width*0.01)) + ")")
-}
+// lines.append('circle')
+//       .attr('cx',function(d){return xScale(d.notification)})
+//       .attr('r',radius)
+//       .attr('class','notification')
 
-function mouseout(d,i){
-   d3.select('.g-'+i)
-        .style('opacity',0.7)
-        .selectAll('circle')
-        .attr('r',radius)
+// lines.append('circle')
+//       .attr('cx',function(d){return xScale(d['deadline_to_enroll'])})
+//       .attr('r',radius)
+//       .attr('class','deadline')
 
-    d3.select('.g-'+i)
-        .style('opacity',0.7)
-        .selectAll('line')
-        .style('stroke-width','1px')
+// lines.append('g')
+//       .attr('class','name')
+//       .append('text')
+//       .text('')
+//       .attr('transform',function(d,i){return 'translate('+(xScale(d['deadline_to_enroll'])+15)+','+0+')'})
+//       .tspans(function(d){return d3.wordwrap(d.scheme, breakpoint)}) //wrap after 20 char
 
-}
+// var voronoiGroup = svg.append("g")
+//       .attr("class", "voronoi");
 
-function slugify(text)
-{
-  return text.toString().toLowerCase()
-    .replace(/\s+/g, '-')           // Replace spaces with -
-    .replace(/[^\w\-]+/g, '')       // Remove all non-word chars
-    .replace(/\-\-+/g, '-')         // Replace multiple - with single -
-    .replace(/^-+/, '')             // Trim - from start of text
-    .replace(/-+$/, '');            // Trim - from end of text
-}
+// voronoiGroup.selectAll("path")
+//   .data(sortedByNotification)
+//   .enter()
+//   .append("rect")
+//   .attr('x','0')
+//   .attr('y',function(d,i){return yScale(i)-yScale.bandwidth()/2})
+//   .attr('class',function(d,i){return 'rect-'+i})
+//   .attr('width',width-margin.left-margin.right)
+//   .attr('height',yScale.bandwidth())
+//   .style('cursor','pointer')
+//   .on("mouseover", mouseover)
+//   .on("mouseout", mouseout)
 
-var t = d3.transition()
-    .duration(2000);
+// annotation1 = svg.append('g')
+//   .attr('class','annotation-group')
+//   .style('opacity',0)
 
-$('.copy.intro span').on('click',function(){
-  $('.copy.intro span').removeClass('active')
-  $(this).addClass('active')
+// annotation2 = svg.append('g')
+//   .attr('class','annotation-group')
+//   .style('opacity',0)
 
-  if ($(this).hasClass('notification')){
+// annotation1.append('text')
+//   .attr('class','annotation-notification white')
 
-    d3.selectAll('.group')
-        .transition()
-        .duration(1800)
-        .attr('transform',function(d){return 'translate(0,'+yScale(parseInt(sortedByNotification.indexOf(d)))+")"})
+// annotation1.append('text')
+//   .attr('class','annotation-notification black')
 
-    d3.selectAll('.voronoi rect')
-        .attr('y',function(d){ return yScale(sortedByNotification.indexOf(d))-(yScale.bandwidth()/2)})
+// annotation2.append('text')
+//   .attr('class','annotation-deadline white')
 
-  } else if ($(this).hasClass('time')){
+// annotation2.append('text')
+//   .attr('class','annotation-deadline black')
 
-    d3.selectAll('.group')
-        .transition()
-        .duration(1800)
-        .attr('transform',function(d){return 'translate(0,'+yScale(parseInt(data.indexOf(d)))+")"})
+// function mouseover(d,i){
 
-    d3.selectAll('.voronoi rect')
-        .attr('y',function(d){return (yScale(data.indexOf(d)))-(yScale.bandwidth()/2)})
+//   d3.select('.g-'+i)
+//         .style('opacity',1)
+//         .selectAll('circle')
+//         .attr('r',big_radius)
 
-  } else {
+//   d3.select('.g-'+i)
+//         .selectAll('line')
+//         .style('stroke-width','2px')
 
-    d3.selectAll('.group')
-        .transition()
-        .duration(1800)
-        .attr('transform',function(d){return 'translate(0,'+yScale(parseInt(sortedByDeadline.indexOf(d)))+")"})
+//    d3.selectAll('.annotation-group')
+//         .style('opacity',1)
+//         .moveToFront()
 
-    d3.selectAll('.voronoi rect')
-        .attr('y',function(d){return (yScale(sortedByDeadline.indexOf(d))-(yScale.bandwidth()/2))})
-  }
+//       // d3.selectAll('.annotation-notification')
+//       //   .text( date_format(d['notification']))
+//       //   .attr('transform','translate(' + (xScale(d.notification)+5) + "," + (yScale(i) + (width*0.01)) + ")")
+
+//       // d3.selectAll('.annotation-deadline')
+//       //   .text(date_format(d['deadline_to_enroll']))
+//       //   .attr('transform','translate(' + (xScale(d['deadline_to_enroll'])+5)+ "," + (yScale(i)+(width*0.01)) + ")")
+// }
+
+// function mouseout(d,i){
+//    d3.select('.g-'+i)
+//         .style('opacity',0.7)
+//         .selectAll('circle')
+//         .attr('r',radius)
+
+//     d3.select('.g-'+i)
+//         .style('opacity',0.7)
+//         .selectAll('line')
+//         .style('stroke-width','1px')
+
+// }
+
+// function slugify(text)
+// {
+//   return text.toString().toLowerCase()
+//     .replace(/\s+/g, '-')           // Replace spaces with -
+//     .replace(/[^\w\-]+/g, '')       // Remove all non-word chars
+//     .replace(/\-\-+/g, '-')         // Replace multiple - with single -
+//     .replace(/^-+/, '')             // Trim - from start of text
+//     .replace(/-+$/, '');            // Trim - from end of text
+// }
+
+// var t = d3.transition()
+//     .duration(2000);
+
+// $('.copy.intro span').on('click',function(){
+//   $('.copy.intro span').removeClass('active')
+//   $(this).addClass('active')
+
+//   if ($(this).hasClass('notification')){
+
+//     d3.selectAll('.group')
+//         .transition()
+//         .duration(1800)
+//         .attr('transform',function(d){return 'translate(0,'+yScale(parseInt(sortedByNotification.indexOf(d)))+")"})
+
+//     d3.selectAll('.voronoi rect')
+//         .attr('y',function(d){ return yScale(sortedByNotification.indexOf(d))-(yScale.bandwidth()/2)})
+
+//   } else if ($(this).hasClass('time')){
+
+//     d3.selectAll('.group')
+//         .transition()
+//         .duration(1800)
+//         .attr('transform',function(d){return 'translate(0,'+yScale(parseInt(data.indexOf(d)))+")"})
+
+//     d3.selectAll('.voronoi rect')
+//         .attr('y',function(d){return (yScale(data.indexOf(d)))-(yScale.bandwidth()/2)})
+
+//   } else {
+
+//     d3.selectAll('.group')
+//         .transition()
+//         .duration(1800)
+//         .attr('transform',function(d){return 'translate(0,'+yScale(parseInt(sortedByDeadline.indexOf(d)))+")"})
+
+//     d3.selectAll('.voronoi rect')
+//         .attr('y',function(d){return (yScale(sortedByDeadline.indexOf(d))-(yScale.bandwidth()/2))})
+//   }
   
-})
+// })
+
+function toTitleCase(str)
+{
+    return str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
+}
