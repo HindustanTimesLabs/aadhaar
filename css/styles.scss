@@ -309,6 +309,16 @@ section{
             display: inline-block;
             vertical-align: top;
          }
+         .det-ins{
+            display: block;
+            position: absolute;
+            font-size: 12px;
+            margin-left: -10px;
+            width: 35px;
+            top: 2px;
+            line-height: 1em;
+            text-align: center;
+         }
          .panel-top{
             width: 35%;
             text-align: right;
@@ -319,11 +329,16 @@ section{
          }
          .panel.panel-expand{
             margin-right: 55px;
-            padding-top: 8px;
+            padding-top: 12px;
             vertical-align: middle;
-            font-size: 2em;
+            font-size: 1.5em;
             opacity: 0;
-            
+            position: relative;
+            color: #aaa;
+            i{
+                    margin-top: 10px;
+
+            }
          }
          .panel.panel-expand,.scheme-desc{
             -moz-transition: all .1s linear;
@@ -469,17 +484,17 @@ section{
         border-bottom: solid 1px #eee;
 
         padding-bottom: 0.2em;
-
         .panel.panel-expand{
-           padding-top: 12px;
-           opacity: 1;
-            -webkit-transform: rotate(-180deg);
-            /* Firefox */
-            -moz-transform: rotate(-180deg);
-            /* IE */
-            -ms-transform: rotate(-180deg);
-            /* Opera */
-            -o-transform: rotate(-180deg);
+            opacity: 1;
+            i{
+                -webkit-transform: rotate(-180deg);
+                /* Firefox */
+                -moz-transform: rotate(-180deg);
+                /* IE */
+                -ms-transform: rotate(-180deg);
+                /* Opera */
+                -o-transform: rotate(-180deg);
+            }
         }
         .scheme-desc{
                 margin-top: 1em;

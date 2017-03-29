@@ -327,7 +327,10 @@
 	  expand = lines.append('div')
 	        .attr('class','panel panel-expand')
 	        .html('<i class="fa fa-caret-down" aria-hidden="true"></i>')
-	        
+	  
+	  expand.append('span')
+	        .attr('class','det-ins')
+	        .text('show info') 
 	
 	  linesg2 = lines.append('div')
 	        .attr('class','panel panel-bottom')
@@ -434,12 +437,18 @@
 	      .transition()
 	      .duration(500)
 	      .style('height',0+'px')
+	
+	    expand.select('span')
+	        .text('show info') 
 	  } else {
 	    $(this).addClass('show')
 	    d3.select(growDiv)
 	      .transition()
 	      .duration(500)
 	      .style('height',growDiv.scrollHeight+10+'px')
+	
+	    expand.select('span')
+	        .text('hide info') 
 	  }
 	}
 	
