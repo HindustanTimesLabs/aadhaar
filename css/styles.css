@@ -49,7 +49,7 @@ body {
   width: 91%;
   margin-left: auto;
   margin-right: auto;
-  max-width: 800px;
+  max-width: 900px;
   font-size: 1.25em;
   line-height: 1.5em;
   color: #3a3a3a; }
@@ -299,7 +299,12 @@ section h2 {
     .interactive .group .scheme-desc {
       font-size: 0.9em;
       margin-bottom: 0;
-      overflow: hidden; }
+      overflow: hidden;
+      max-width: 900px;
+      margin-left: 3em; }
+      .interactive .group .scheme-desc a {
+        color: #e74c3c;
+        font-weight: bold; }
     .interactive .group .chart {
       margin-top: 2em;
       position: relative; }
@@ -341,7 +346,7 @@ section h2 {
         background-color: #1D8281; }
       .interactive .group .chart .dot.deadline {
         background-color: #DB634F; }
-    @media (max-width: 700px) {
+    @media (max-width: 750px) {
       .interactive .group {
         padding-bottom: 1em;
         padding-top: 0.5em;
@@ -366,7 +371,8 @@ section h2 {
           line-height: 1.4em; }
         .interactive .group .scheme-desc {
           padding: 0.2em;
-          padding-top: 2.5em; }
+          padding-top: 2.5em;
+          margin-left: 0; }
         .interactive .group h2 {
           font-size: 1em;
           line-height: 1.4em; }
@@ -378,11 +384,11 @@ section h2 {
     cursor: pointer; }
     .interactive .group:hover .panel.panel-expand, .interactive .group:hover .annotation.ann-info {
       opacity: 1; }
-  .interactive .group.g-0 .annotation.ann-info.notif {
-    margin-left: -63px; }
+  .interactive .group.g-0 .annotation.ann-info.notif, .interactive .group.g-1 .annotation.ann-info.notif {
+    margin-left: -58px; }
   .interactive .group.show {
-    border-top: solid 1px #eee;
-    border-bottom: solid 1px #eee;
+    border-top: solid 1px #ddd;
+    border-bottom: solid 1px #ddd;
     padding-bottom: 0.2em; }
     .interactive .group.show .panel.panel-expand {
       opacity: 1; }
