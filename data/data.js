@@ -6,7 +6,8 @@ var data = [
     "deadline_to_enroll": new Date (2017,2,31),
     "desc": "Guarantees 100 days of wage employment in a year to unemployed rural Indians willing to do unskilled manual work. The Aadhaar requirement is valid for all states and union territories except Assam, Meghalaya, Jammu and Kashmir.",
     "welfare":'Y',
-    "link": "http://nrega.nic.in/netnrega/writereaddata/Circulars/2001173479.pdf"
+    "link": "http://nrega.nic.in/netnrega/writereaddata/Circulars/2001173479.pdf",
+    'type':'employment'
   },
   {
     "scheme": "Employees' Pension Scheme (EPS)",
@@ -15,7 +16,8 @@ var data = [
     "deadline_to_enroll": new Date (2017,0,31),
     "desc": "",
     "welfare":'Y',
-    "link": "http://egazette.nic.in/WriteReadData/2017/173488.pdf"
+    "link": "http://egazette.nic.in/WriteReadData/2017/173488.pdf",
+    'type':'employment'
   },
   {
     "scheme": "Workers and Helpers involved in the Integrated Child Development Services (ICDS) Scheme [Anganwadi Services] ",
@@ -60,7 +62,8 @@ var data = [
     "deadline_to_enroll": new Date (2017,5,30),
     "desc": null,
     "welfare":'Y',
-    "link": "http://dfpd.nic.in/writereaddata/Portal/Magazine/Document/1_211_1_aadhaar-notification.pdf"
+    "link": "http://dfpd.nic.in/writereaddata/Portal/Magazine/Document/1_211_1_aadhaar-notification.pdf",
+    type: 'subsidy'
   },
   {
     "scheme": "Pradhan Mantri Fasal Bima Yojana (PMFBY) and Restructured Weather based Crop Insurance Scheme (RWBCIS)",
@@ -204,7 +207,8 @@ var data = [
     "deadline_to_enroll": new Date(2017,5,30),
     "desc": null,
     "welfare":'Y',
-    "link": "http://egazette.nic.in/WriteReadData/2017/174527.pdf"
+    "link": "http://egazette.nic.in/WriteReadData/2017/174527.pdf",
+    type: 'scholarship'
   },
   {
     "scheme": "Maternity Benefit Programme",
@@ -355,7 +359,8 @@ var data = [
     "deadline_to_enroll": new Date(2017,2,31),
     "desc": null,
     "welfare":'Y',
-    "link": "http://egazette.nic.in/WriteReadData/2017/174186.pdf"
+    "link": "http://egazette.nic.in/WriteReadData/2017/174186.pdf",
+    type: 'scholarship'
   },
   {
     "scheme": "Central Sector Scholarship Scheme for College and University students",
@@ -364,16 +369,20 @@ var data = [
     "deadline_to_enroll": new Date(2017,5,30),
     "desc": null,
     "welfare":'Y',
-    "link": "http://egazette.nic.in/WriteReadData/2017/174197.pdf"
+    "link": "http://egazette.nic.in/WriteReadData/2017/174197.pdf",
+    type: 'scholarship'
+
   },
   {
-    "scheme": "National Means Cum-Merit Scholarship Scheme (NMMSS)",
+    "scheme": "National Means-Cum-Merit Scholarship Scheme (NMMSS)",
     "ministry": "MINISTRY OF HUMAN RESOURCE DEVELOPMENT",
     "notification": new Date(2017,1,15),
     "deadline_to_enroll": new Date(2017,5,30),
     "desc": null,
     "welfare":'Y',
-    "link": "http://egazette.nic.in/WriteReadData/2017/174187.pdf"
+    "link": "http://egazette.nic.in/WriteReadData/2017/174187.pdf",
+    type: 'scholarship'
+
   },
   {
     "scheme": "Deen Dayal Upadhyaya Grameen Kaushalya Yojana (DDU-GKY)",
@@ -418,7 +427,9 @@ var data = [
     "deadline_to_enroll": new Date(2017,3,30),
     "desc": "The Aadhaar requirement is valid for all states and union territories except Assam, Meghalaya, Jammu and Kashmir.",
     "welfare":'Y',
-    "link": "http://egazette.nic.in/WriteReadData/2017/174653.pdf"
+    "link": "http://egazette.nic.in/WriteReadData/2017/174653.pdf",
+    type: 'scholarship'
+
   },
   {
     "scheme": "Journalist Welfare Scheme through Press Information Bureau",
@@ -463,7 +474,9 @@ var data = [
     "deadline_to_enroll": new Date(2017,8,30),
     "desc": "Central Sector Scheme to aid the students in education, and research in Science and technology development. The schemes viz. DISHA Programme, INSPIRE Award, INSPIRE Scholarship, INSPIRE Internship, INSPIRE Fellowship and INSPIRE Faculty (hereinafter referred toas the Schemes) are implemented through Government or Non-Government Academic Institutions (hereinafter referredto as the Implementing Agencies)",
     "welfare":'Y',
-    "link": "http://egazette.nic.in/WriteReadData/2017/174686.pdf"
+    "link": "http://egazette.nic.in/WriteReadData/2017/174686.pdf",
+    type: 'scholarship'
+
   },
   {
     "scheme": "Mission for Integrated Development of Horticulture",
@@ -472,7 +485,8 @@ var data = [
     "deadline_to_enroll": new Date(2017,3,1),
     "desc": " Individuals desirous of availing the subsidy under NHB, CDB & CIH sub-schemes of Mission for Integrated Development of Horticulture are hereby required to furnish proof of possession of Aadhaar",
     "welfare":'Y',
-    "link": "http://egazette.nic.in/WriteReadData/2017/174111.pdf"
+    "link": "http://egazette.nic.in/WriteReadData/2017/174111.pdf",
+    type: 'subsidy'
   },
   {
     "scheme": "Mission for Integrated Development of Horticulture",
@@ -499,7 +513,8 @@ var data = [
     "deadline_to_enroll": new Date(2017,5,30),
     "desc": "",
     "welfare":'Y',
-    "link": "http://egazette.nic.in/WriteReadData/2017/174470.pdf"
+    "link": "http://egazette.nic.in/WriteReadData/2017/174470.pdf",
+    'type':'subsidy'
   },
   {
     "scheme": "Operation of certain schemes through eligible NGOs",
@@ -517,7 +532,9 @@ var data = [
     "deadline_to_enroll": 'NA',
     "desc": "The Aadhaar requirement is valid for all states and union territories except Assam, Meghalaya, Jammu and Kashmir.",
     "welfare":'Y',
-    "link": "http://egazette.nic.in/WriteReadData/2017/174461.pdf"
+    "link": "http://egazette.nic.in/WriteReadData/2017/174461.pdf",
+    type: 'scholarship'
+
   },
   {
     "scheme": "Schemes to aid entrepreneurs from a SC background",

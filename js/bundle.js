@@ -54,10 +54,24 @@
 	  if (d.deadline_to_enroll!='NA'){
 	    d.difference = d.deadline_to_enroll - d.notification
 	  } else{
-	    d.difference = -1
+	    d.difference = 10000000000000000
 	  }
-	  
 	})
+	
+	var total_things = data.length,
+	    non_welfare = _.where(data,{welfare: 'N'}).length,
+	    welfare = _.where(data,{welfare: 'Y'}).length,
+	    employment = _.where(data,{type: 'employment'}).length,
+	    subsidy = _.where(data,{type: 'subsidy'}).length,
+	    scholarship = _.where(data,{type: 'scholarship'}).length
+	
+	$('.total-things').text(total_things)
+	$('.non-welfare').text(non_welfare)
+	$('.welfare').text(welfare)
+	$('.employment').text(employment)
+	$('.subsidy').text(subsidy)
+	$('.scholarship').text(scholarship)
+	
 	sortedByNotification = _.sortBy(data,'notification')
 	sortedByDeadline = _.sortBy(data,function(d){
 	  if (d.deadline_to_enroll!='NA'){
@@ -117,13 +131,7 @@
 	
 	  chart.append('div')
 	        .attr('class','chart-back c-line')
-	        .style('width',function(d){
-	          if (d.deadline_to_enroll!='NA'){
-	                    return (xScale(d.deadline_to_enroll)/(xScale(new Date(2018, 2, 31))))*100+"%"
-	          } else {
-	            return '0%'
-	          }
-	        })
+	        .style('width', '100%')
 	
 	
 	  chart.append('div')
@@ -190,7 +198,6 @@
 	  chart.append('p')
 	        .attr('class','annotation ann-info notif')
 	        .text(function(d){
-	          
 	                    if (date_format_axis(d.deadline_to_enroll) != date_format_axis(d.notification)) {
 	                      return 'Notification date'
 	                    } else {
