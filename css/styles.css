@@ -309,7 +309,7 @@ section h2 {
       margin-top: 2em;
       position: relative; }
       .interactive .group .chart .c-line {
-        height: 3px;
+        height: 2px;
         position: absolute; }
       .interactive .group .chart .annotation {
         margin-bottom: 0;
@@ -334,7 +334,7 @@ section h2 {
         background-color: #f0f0f0; }
       .interactive .group .chart .c-line.chart-line {
         background-color: #5E5E5E;
-        height: 4px; }
+        height: 3px; }
       .interactive .group .chart .dot {
         position: absolute;
         height: 15px;
