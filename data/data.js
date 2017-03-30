@@ -14,7 +14,7 @@ var data = [
     "ministry": "Ministry of Labour and Employment",
     "notification": new Date (2017,0,4),
     "deadline_to_enroll": new Date (2017,0,31),
-    "desc": "",
+    "desc": "People enrolled in the Employees’ Pension Scheme now need an Aadhaar to avail the Central Government’s contribution towards their pension. The requirement is valid in all states except Jammu and Kashmir.",
     "welfare":'Y',
     "link": "http://egazette.nic.in/WriteReadData/2017/173488.pdf",
     'type':'employment'
@@ -24,7 +24,7 @@ var data = [
     "ministry": "MINISTRY OF WOMEN AND CHILD DEVELOPMENT",
     "notification": new Date (2017,1,6),
     "deadline_to_enroll": new Date (2017,2,31),
-    "desc": "All Anganwadi Workers and Anganwadi Helpers working in Anganwadi Centres and Mini-Anganwadi Centres need to have an Aadhaar. The Aadhaar requirement is valid for all states and union territories except Jammu and Kashmir.",
+    "desc": "Anganwadi provides food, preschool education and primary healthcare to children under 6 and their mothers. All workers and helpers working in Anganwadi Centres and Mini-Anganwadi Centres need to have an Aadhaar. The requirement is valid for all states and union territories except Jammu and Kashmir.",
     "welfare":'Y',
     "link": "http://egazette.nic.in/WriteReadData/2017/174047.pdf"
   },
@@ -33,34 +33,43 @@ var data = [
     "ministry": "MINISTRY OF WOMEN AND CHILD DEVELOPMENT",
     "notification": new Date (2017,1,14),
     "deadline_to_enroll": new Date (2017,2,31),
-    "desc": "All beneficiaries include staff of the Anganwadi Training Centers (AWTCs) or Middle level Training Centers (MLTCs), guest faculty or resource persons and trainees who are enrolled in the AWTCs or MLTCs for the training courses. The Aadhaar requirement is valid for all states and union territories except Assam, Meghalaya and Jammu and Kashmir.",
+    "desc": "Anganwadi provides food, preschool education and primary healthcare to children under 6 and their mothers. Aadhaar is mandatory by all beneficiaries including staff of the Anganwadi Training Centers (AWTCs) or Middle level Training Centers (MLTCs), guest faculty or resource persons and trainees who are enrolled in the AWTCs or MLTCs for the training courses. The requirement is valid for all states and union territories except Assam, Meghalaya and Jammu and Kashmir.",
     "welfare":'Y',
     "link": "http://egazette.nic.in/WriteReadData/2017/174159.pdf"
+  },
+    {
+    "scheme": "Supplementary Nutrition Program offered at Anganwadi Centres",
+    "ministry": "MINISTRY OF WOMEN AND CHILD DEVELOPMENT",
+    "notification": new Date (2017,1,6),
+    "deadline_to_enroll": new Date (2018,2,31),
+    "desc": "Anganwadi provides food, preschool education and primary healthcare to children under 6 and their mothers. Those who want support from the Supplementary Nutrition Program offered at the Anganwadi Centres now require an Aadhaar. Aadhaar is mandatory in all states and union territories except Jammu and Kashmir.",
+    "welfare":'Y',
+    "link": "http://egazette.nic.in/WriteReadData/2017/174047.pdf"
   },
   {
     "scheme": "Remuneration under the Integrated Child Development Scheme (ICDS)",
     "ministry": "MINISTRY OF WOMEN AND CHILD DEVELOPMENT",
     "notification": new Date (2017,1,22),
     "deadline_to_enroll": new Date (2017,2,31),
-    "desc": "The Aadhaar requirement is valid for all states and union territories except Assam, Meghalaya and Jammu and Kashmir.",
+    "desc": "ICDS is a program that aims to provide a safe and secure environment for children. Remuneration for all staff members to work under the scheme now require an Aadhaar. The requirement is valid for all states and union territories except Assam, Meghalaya and Jammu and Kashmir.",
     "welfare":'Y',
     "link": "http://egazette.nic.in/WriteReadData/2017/174355.pdf"
   },
-  {
-    "scheme": "Stipend Component to Children in Special Training Centres",
-    "ministry": "Ministry of Labour and Employment",
-    "notification": new Date (2017,2,24),
-    "deadline_to_enroll": new Date (2017,8,30),
-    "desc": null,
-    "welfare":'Y',
-    "link": ""
-  },
+  // {
+  //   "scheme": "Stipend Component to Children in Special Training Centres",
+  //   "ministry": "Ministry of Labour and Employment",
+  //   "notification": new Date (2017,2,24),
+  //   "deadline_to_enroll": new Date (2017,8,30),
+  //   "desc": null,
+  //   "welfare":'Y',
+  //   "link": ""
+  // },
   {
     "scheme": "Targeted Public Distribution System",
     "ministry": "Ministry of Consumer Affairs, Food and Public distribution",
     "notification": new Date (2017,1,8),
     "deadline_to_enroll": new Date (2017,5,30),
-    "desc": null,
+    "desc": "Aadhaar is mandatory to recieve subsidised food grains and have ration cards issued by the government. The requirement is valid for all states and union territories except Assam, Meghalaya and Jammu and Kashmir.",
     "welfare":'Y',
     "link": "http://dfpd.nic.in/writereaddata/Portal/Magazine/Document/1_211_1_aadhaar-notification.pdf",
     type: 'subsidy'
@@ -70,7 +79,7 @@ var data = [
     "ministry": "MINISTRY OF AGRICULTURE AND FARMERS WELFARE",
     "notification": new Date (2017,1,8),
     "deadline_to_enroll": "NA",
-    "desc": "The Aadhaar requirement is valid for all states and union territories except Assam, Meghalaya and Jammu and Kashmir.",
+    "desc": "Both the programs provide insurance against crop failure - the cost of which is shared by the centre and the state governments. Aadhaar is mandatory to get the share from the central government. The Aadhaar requirement is valid in all states except Assam, Meghalaya and Jammu and Kashmir.",
     "welfare":'Y',
     "link": "http://egazette.nic.in/WriteReadData/2017/174076.pdf"
   },
@@ -79,7 +88,7 @@ var data = [
     "ministry": "MINISTRY OF RURAL DEVELOPMENT ",
     "notification": new Date (2017,1,8),
     "deadline_to_enroll": new Date(2017,2,31),
-    "desc": "The Aadhaar requirement is valid for all states and union territories except Assam, Meghalaya and Jammu and Kashmir.",
+    "desc": "The rural housing scheme aims to achieve housing for all by 2022 in rural areas across the country. The Aadhaar requirement is valid for all states and union territories except Assam, Meghalaya and Jammu and Kashmir.",
     "welfare":'Y',
     "link": "http://egazette.nic.in/WriteReadData/2017/174204.pdf"
   },
@@ -88,7 +97,7 @@ var data = [
     "ministry": "MINISTRY OF SKILL DEVELOPMENT AND ENTREPRENEURSHIP",
     "notification": new Date (2017,1,10),
     "deadline_to_enroll": "NA",
-    "desc": "The Aadhaar requirement is valid for all states and union territories except Assam, Meghalaya and Jammu and Kashmir.",
+    "desc": "The government provides employers 25% of the stipend paid to apprentices under the scheme. People who wish to enroll as trainees or apprentices under the scheme require an Aadhaar. It is mandatory in all states except Assam, Meghalaya and Jammu and Kashmir.",
     "welfare":'Y',
     "link": "http://egazette.nic.in/WriteReadData/2017/174116.pdf"
   },
@@ -97,7 +106,7 @@ var data = [
     "ministry": "MINISTRY OF HUMAN RESOURCE DEVELOPMENT",
     "notification": new Date (2017,2,2),
     "deadline_to_enroll": new Date (2017,5,30),
-    "desc": "Aims at universalising elementary education in India.  The Aadhaar requirement is valid for all states and union territories except the States of Assam, Meghalaya and Jammu and Kashmir.",
+    "desc": "Aims at universalising elementary education in India. The Aadhaar requirement is valid in all states and union territories except the States of Assam, Meghalaya and Jammu and Kashmir.",
     "welfare":'Y',
     "link": "http://egazette.nic.in/WriteReadData/2017/174484.pdf"
   },
@@ -106,7 +115,7 @@ var data = [
     "ministry": "MINISTRY OF FINANCE",
     "notification": new Date (2017,2,22),
     "deadline_to_enroll": new Date (2017,6,1),
-    "desc": "",
+    "desc": "Aadhaar number has been made mandatory for filing income tax returns and applying for a PAN card.",
     "welfare":'N',
     "link": "http://www.hindustantimes.com/business-news/now-aadhaar-a-must-to-file-income-tax-returns-and-apply-for-pan-card/story-71CBEXGGD8yd9iFjUn4oNI.html"
   },
@@ -115,25 +124,26 @@ var data = [
     "ministry": "MINISTRY OF WOMEN AND CHILD DEVELOPMENT",
     "notification": new Date (2017,1,25),
     "deadline_to_enroll": new Date (2017,5,30),
-    "desc": "Aims to provide employable skills to women that are 16 years and older.",
+    "desc": "The scheme aims to provide employable skills to women that are 16 years and older. The Aadhaar requirement is valid in all states and union territories except the States of Assam, Meghalaya and Jammu and Kashmir.",
     "welfare":'Y',
-    "link": "http://www.wcd.nic.in/sites/default/files/NOTIFICATION%20-%20PEW-STEP.pdf"
+    "link": "http://www.wcd.nic.in/sites/default/files/NOTIFICATION%20-%20PEW-STEP.pdf",
+    "type":"employment"
   },
   {
     "scheme": "Scheme for Adolescent Girls",
     "ministry": "MINISTRY OF WOMEN AND CHILD DEVELOPMENT",
     "notification": new Date (2017,1,25),
     "deadline_to_enroll": new Date (2017,5,30),
-    "desc": "all-round development of adolescent girls (with a focus on all out-of-school adolescent girls) and is being implemented by the State Governments and Union Territory Administrations through the network of Anganwadi Centres under the Integrated Child Development Services (ICDS) scheme.  The Aadhaar requirement is valid for all states and union territories except the States of Assam, Meghalaya and Jammu and Kashmir.",
+    "desc": "The scheme provides food, healthcare and life skills education for adolescent girls. The Aadhaar is mandatory to avail its servicesin all states and union territories except Assam, Meghalaya and Jammu and Kashmir.",
     "welfare":'Y',
     "link": "http://egazette.nic.in/WriteReadData/2017/174222.pdf"
   },
   {
-    "scheme": "National Mission of Empowerment of Women (NMEW)",
+    "scheme": "Honorarium for staff of National Mission of Empowerment of Women (NMEW)",
     "ministry": "MINISTRY OF WOMEN AND CHILD DEVELOPMENT",
     "notification": new Date (2017,1,16),
     "deadline_to_enroll": new Date (2017,2,31),
-    "desc": "The Aadhaar requirement is valid for all states and union territories except the States of Assam, Meghalaya and Jammu and Kashmir.",
+    "desc": "Provides health care, social empowerment and education in addition to other services for the empowerment of women. Aadhaar is mandatary for all workers to recieve their honorarium under the scheme. It is a requirement in all states and union territories except the States of Assam, Meghalaya and Jammu and Kashmir.",
     "welfare":'Y',
     "link": "http://egazette.nic.in/WriteReadData/2017/174261.pdf"
   },
@@ -142,16 +152,16 @@ var data = [
     "ministry": "MINISTRY OF DRINKING WATER AND SANITATION",
     "notification": new Date (2017,1,16),
     "deadline_to_enroll": new Date (2017,2,31),
-    "desc": "The Aadhaar requirement is valid for all states and union territories except the States of Assam, Meghalaya and Jammu and Kashmir.",
+    "desc": "Provides incentive to all Below Poverty Line (BPL) households and Above Poverty Line households (APL) restricted to SCs/STs, small and marginal farmers, Landless Labourers with homestead, differently Abled and women headed households for the construction of latrines. The Aadhaar requirement is valid in all states and union territories except the States of Assam, Meghalaya and Jammu and Kashmir.",
     "welfare":'Y',
     "link": "http://egazette.nic.in/WriteReadData/2017/174266.pdf"
   },
   {
-    "scheme": "e-Panchayat Mission Mode Project",
+    "scheme": "Training under e-Panchayat Mission Mode Project",
     "ministry": "MINISTRY OF PANCHAYATI RAJ",
     "notification": new Date (2017,1,17),
     "deadline_to_enroll": new Date (2017,5,30),
-    "desc": "The Aadhaar requirement is valid for all states and union territories except the States of Assam, Meghalaya and Jammu and Kashmir.",
+    "desc": "e-Panchayat is an e-governance scheme for Panchayats. Aadhaar is mandatory to receive training to use applications under the e-governance framework in all states and union territories except the States of Assam, Meghalaya and Jammu and Kashmir.",
     "welfare":'Y',
     "link": "http://egazette.nic.in/WriteReadData/2017/174295.pdf"
   },
@@ -162,7 +172,7 @@ var data = [
     "deadline_to_enroll": new Date (2017,2,31),
     "desc": "The scheme comes under the National Mission for Sustainable Agriculture. The Aadhaar requirement is valid for all states and union territories except the States of Assam, Meghalaya and Jammu and Kashmir.",
     "welfare":'Y',
-    "link": "http://egazette.nic.in/WriteReadData/2017/174303.pd"
+    "link": "http://egazette.nic.in/WriteReadData/2017/174303.pdf"
   },
   {
     "scheme": "Swadhar Greh Scheme",
