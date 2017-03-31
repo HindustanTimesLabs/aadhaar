@@ -201,7 +201,13 @@ function appendThings(selected_data){
 
   lines.append('p')
         .attr('class','scheme-desc')
-        .html(function(d){return d.desc + " <a target = '_blank' href='"+d.link+"'>Link to official notification</a>"})
+        .html(function(d){
+          if (d.link){
+            return d.desc + " <a target = '_blank' href='"+d.link+"'>Link to official notification</a>"
+          } else {
+            return d.desc
+          }
+        })
         .style('height',0)
 
   lines.transition()
