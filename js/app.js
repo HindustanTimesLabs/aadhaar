@@ -37,6 +37,8 @@ sortedByDeadline = _.sortBy(data,function(d){
 })
 data = _.sortBy(data,'difference')
 var date_format_axis = d3.timeFormat("%d %b");
+var date_format_axis_w_yr = d3.timeFormat("%d %b %Y");
+
 
 
 var xScale = d3.scaleTime()
@@ -179,7 +181,14 @@ function appendThings(selected_data){
 
   chart.append('p')
         .attr('class','annotation ann-notif')
-        .text(function(d){return date_format_axis(d.notification)})
+        .text(function(d,i){
+          if (i==0){
+            return date_format_axis_w_yr(d.notification)
+          } else {
+            return date_format_axis(d.notification)
+          }
+          
+        })
         .style('left',function(d){
           return (xScale(d.notification)/(xScale(new Date(2018, 2, 31))))*100+"%"
         })
@@ -187,12 +196,18 @@ function appendThings(selected_data){
   chart.append('p')
         .attr('class','annotation ann-deadline')
         .text(function(d){
+
           if (d.deadline_to_enroll!='NA'){
-            if (date_format_axis(d.deadline_to_enroll) != date_format_axis(d.notification)) {
-              return date_format_axis(d.deadline_to_enroll)
+            if ((d.deadline_to_enroll).getYear()>117){
+              return date_format_axis_w_yr(d.deadline_to_enroll)
             } else {
-              return ''
+              if (date_format_axis(d.deadline_to_enroll) != date_format_axis(d.notification)) {
+                return date_format_axis(d.deadline_to_enroll)
+              } else {
+                return ''
+              }
             }
+            
           } 
         })
         .style('left',function(d){
