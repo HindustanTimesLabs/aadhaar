@@ -261,50 +261,50 @@ $('.copy.intro span').on('click',function(){
 
     d3.selectAll('.group')
         .transition()
-        .duration(500)
+        .duration(300)
         .style('opacity',0)
     
     d3.select('.line-group')
       .transition()
-      .delay(600)
+      .delay(400)
       .remove()
     setTimeout(function(){
       appendThings(sortedByNotification)
-    },650)
+    },450)
     
 
   } else if ($(this).hasClass('time')){
 
     d3.selectAll('.group')
         .transition()
-        .duration(500)
+        .duration(300)
         .style('opacity',0)
 
      d3.select('.line-group')
       .transition()
-      .delay(600)
+      .delay(400)
       .remove()
 
     setTimeout(function(){
       appendThings(data)
-    },650)
+    },450)
     
 
   } else {
 
     d3.selectAll('.group')
         .transition()
-        .duration(500)
+        .duration(300)
         .style('opacity',0)
 
      d3.select('.line-group')
       .transition()
-      .delay(600)
+      .delay(400)
       .remove()
 
     setTimeout(function(){
       appendThings(sortedByDeadline)
-    },650)
+    },450)
   }
   
 })

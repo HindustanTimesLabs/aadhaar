@@ -547,7 +547,6 @@ section{
 }
 
 .copy.intro{
-    font-style: italic;
     text-align: center;
     font-size: 1.2em;
     @media(max-width: 750px){
@@ -577,6 +576,10 @@ section{
         color: #fff;
         cursor: pointer;
         display: inline-block;
+        
+    }
+    .ss{
+        font-family: "Open Sans";
     }
 
     .number-sentence span{
