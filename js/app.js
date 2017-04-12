@@ -6,7 +6,7 @@ var _ = require('underscore')
 
 data.forEach(function(d){
   if (d.deadline_to_enroll!='NA'){
-    d.difference = d.deadline_to_enroll - d.notification
+    d.difference = Math.round(d.deadline_to_enroll - d.notification)
   } else{
     d.difference = 10000000000000000
   }

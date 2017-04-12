@@ -550,5 +550,23 @@ var data = [
     "desc": "The scheme provides grants to National Safai Karamcharis Finance and Development Corporation. An Aadhaar number is mandatory to avail grants in all states and union territories, except Assam, Meghalaya, Jammu and Kashmir.",
     "welfare":'Y',
     "link": "http://egazette.nic.in/WriteReadData/2017/174851.pdf"
+  },
+  {
+    "scheme": "National Handicraft Development Programme (NHDP)",
+    "ministry": "Ministry of textiles",
+    "notification": new Date(2017,2,29),
+    "deadline_to_enroll": new Date(2017,2,31),
+    "desc": "Various schemes under the programme provide benefits and financial benefits to artisans. An Aadhaar number is mandatory for this programme in all states, except Assam, Meghalaya, Jammu and Kashmir.",
+    "welfare":'Y',
+    "link": "http://egazette.nic.in/WriteReadData/2017/175048.pdf"
+  },
+  {
+    "scheme": "State Extension Programmes for Extension Reforms under ATMA",
+    "ministry": "MINISTRY OF AGRICULTURE AND FARMERS WELFARE",
+    "notification": new Date(2017,2,31),
+    "deadline_to_enroll": new Date(2017,2,31),
+    "desc": "The scheme provides financial assistance in the form of awards to farmers and annual contingency to Farmer Friends.",
+    "welfare":'Y',
+    "link": "http://egazette.nic.in/WriteReadData/2017/175243.pdf"
   }
 ]
