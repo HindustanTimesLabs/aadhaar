@@ -1,9 +1,364 @@
 var data = [
+{
+    "scheme": "Bank accounts",
+    "ministry": "MINISTRY OF ELECTRONICS AND INFORMATION TECHNOLOGY",
+    "notification": new Date (2017,6,14),
+    "deadline_to_enroll": new Date (2017,11,31),
+    "desc": "Under the Prevention of Money Laundering Rules, 2005, Aadhaar needs to be linked by all bank accounts, by the end of the year, failing which the accounts will become inoperative.",
+    "welfare":'N',
+    "link": "http://egazette.nic.in/WriteReadData/2017/177393.pdf"
+  },
+{
+    "scheme": "Central Sector Scheme of Research, Development and Consultancies on Generic issues related to Public Sector Enterprises",
+    "ministry": "Ministry of Heavy Industries and Public Enterprises",
+    "notification": new Date (2017,6,10),
+    "deadline_to_enroll": 'NA',
+    "desc": "The Scheme offers training programmes on capacity building and skill development for the executives and employees of the Central Public Sector Enterprises and State Level Public Enterprises to reduce their skill gaps and to up-grade their capacity. It is offered through various national institutes such as  Indian Institute of Management (IIM), Indian Institute of Technology (IIT), Indian Institute of Public Administration, Administrative Staff College of India (Hyderabad), Institute of Public Enterprises (Hyderabad), and Lal Bahadur Shastri National Academy of Administration at Mussoorie. Aadhaar is mandatory for this scheme in all states and union territories, except Assam, Meghalaya and Jammu and Kashmir.",
+    "welfare":'N',
+    "link": "http://egazette.nic.in/WriteReadData/2017/177338.pdf"
+  },
+{
+    "scheme": "Revised National Tuberculosis Control Programme (RNTCP)",
+    "ministry": "Ministry of Health and Family Welfare",
+    "notification": new Date (2017,5,16),
+    "deadline_to_enroll": new Date (2017,7,31),
+    "desc": "Provides conditional cash assistance to eligible TB patients, private health care providers and treatment supporters. Aadhaar is mandatory for this scheme in all states and union territories, except Assam, Meghalaya and Jammu and Kashmir.",
+    "welfare":'Y',
+    "link": "http://tbcindia.nic.in/showfile.php?lid=3286",
+    type:'health'
+  },
+{
+    "scheme": "Central Sector Scheme of Counselling, Retraining and Redeployment for separated employees of the Central Public Sector Enterprises (CPSEs) ",
+    "ministry": "Ministry of Heavy Industries and Public Enterprises",
+    "notification": new Date (2017,6,10),
+    "deadline_to_enroll": 'NA',
+    "desc": "Provide opportunities of self and wage employment to employees or dependents of the Central Public Sector Enterprises who are separated under the Voluntary Retirement Scheme (VRS) or the Voluntary Separation Scheme (VSS) or have been retrenched due to closure or restructuring of the enterprises, by providing short-duration skill development training programmes to equip them for self or wage employment. Aadhaar is mandatory for this scheme in all states and union territories, except Assam, Meghalaya and Jammu and Kashmir.",
+    "welfare":'N',
+    "link": "http://egazette.nic.in/WriteReadData/2017/177337.pdf"
+  },
+{
+    "scheme": "Central Sector Scheme of Extra Mural Research",
+    "ministry": "Ministry of Ayurveda, Yoga and Naturopathy, Unani, Siddha and Homoeopathy (AYUSH)",
+    "notification": new Date (2017,6,5),
+    "deadline_to_enroll": 'NA',
+    "desc": "Grant-in-Aid to the Public and Private Research Institutions to cover the expenditures incurred towards payment of remuneration to the individuals who are hired exclusively under the research projects, and also payment of fee, travelling allowance and dearness allowances to the Principal Investigator and the Co-Investigators who are already employees of the Research Institutes.",
+    "welfare":'N',
+    "link": "http://egazette.nic.in/WriteReadData/2017/177179.pdf"
+  },
+{
+    "scheme": "Family planning Schemes under the National Health Mission",
+    "ministry": "Ministry of Health and Family Welfare",
+    "notification": new Date (2017,5,27),
+    "deadline_to_enroll": new Date (2017,8,30),
+    "desc": "Enhanced Compensation Scheme for Sterilisation for beneficiaries and service providers; (ii) Post-Partum IUCD (PPIUCD) Incentive Scheme to beneficiaries and service providers; (iii) Post-Abortion IUCD (PAIUCD) Incentive Scheme to beneficiaries and service providers; (iv) Ensuring Spacing of Births (ESB) Scheme; (v) Family Planning Indemnity Scheme (FPIS); ",
+    "welfare":'Y',
+    "link": "http://egazette.nic.in/WriteReadData/2017/177012.pdf",
+    'type':'health'
+  },
+  {
+    "scheme": "Scheme for Promotion of International Co-operation in AYUSH",
+    "ministry": "Ministry of AYUSH",
+    "notification": new Date (2017,5,19),
+    "deadline_to_enroll": new Date (2017,8,30),
+    "desc": "Under the scheme, financial assistance is provided to the individuals for presentation of AYUSH related scientific research papers in international conferences, workshops and seminars by reimbursing the expenditures incurred on their air-travel, accommodation, delegation registration fees and other expenses. Aadhaar is mandatory for this scheme in all states and union territories, except Assam, Meghalaya and Jammu and Kashmir.",
+    "welfare":'N',
+    "link": "http://egazette.nic.in/WriteReadData/2017/176871.pdf"
+  },
+    {
+    "scheme": "Fertilizer Subsidy Schemes",
+    "ministry": "Ministry of Chemicals and Fertilizers",
+    "notification": new Date (2017,4,17),
+    "deadline_to_enroll": new Date (2017,5,30),
+    "desc": "(i) Urea subsidy MH 2852 payment for Import of Urea; (ii) Urea subsidy MH 2852 payment for Urea freight subsidy; (iii) Urea subsidy MH 2852 payment for Indigenous Urea; (iv).Nutrient based subsidy policy MH 2401 payment for City Compost; (v) Nutrient based subsidy policy MH 2401 payment for imported P and K fertilizers; (vi) Nutrient based subsidy policy MH 2401 payment for indigenous P and K fertilizers; ",
+    "welfare":'Y',
+    "link": "http://egazette.nic.in/WriteReadData/2017/176668.pdf",
+    "type": "subsidy"
+  },
+  {
+    "scheme": "Central Sector Scheme of Co-operative Education and Training",
+    "ministry": "Ministry of Agriculture and Farmers Welfare",
+    "notification": new Date (2017,5,9),
+    "deadline_to_enroll": new Date (2017,6,9),
+    "desc": "",
+    "welfare":'Y',
+    "link": "http://egazette.nic.in/WriteReadData/2017/176565.pdf"
+  },
+  {
+    "scheme": "Pre-matric Scholarship Scheme for Scheduled Tribe Students Studying in Class IX and X",
+    "ministry": "Ministry of Tribal Affairs",
+    "notification": new Date (2017,4,30),
+    "deadline_to_enroll": new Date (2017,5,30),
+    "desc": "",
+    "welfare":'Y',
+    "link": "http://egazette.nic.in/WriteReadData/2017/176349.pdf",
+    type: 'scholarship'
+  },
+    {
+    "scheme": "Post-Matric Scholarship for Scheduled Tribe Students ",
+    "ministry": "Ministry of Tribal Affairs",
+    "notification": new Date (2017,4,30),
+    "deadline_to_enroll": new Date (2017,5,30),
+    "desc": "",
+    "welfare":'Y',
+    "link": "http://egazette.nic.in/WriteReadData/2017/176349.pdf",
+    type: 'scholarship'
+  },
+    {
+    "scheme": "National Fellowship and Scholarship for Higher Education of Scheduled Tribe Students",
+    "ministry": "Ministry of Tribal Affairs",
+    "notification": new Date (2017,4,30),
+    "deadline_to_enroll": new Date (2017,5,30),
+    "desc": "",
+    "welfare":'Y',
+    "link": "http://egazette.nic.in/WriteReadData/2017/176349.pdf",
+    type: 'scholarship'
+  },
+    {
+    "scheme": "Scholarship to the Scheduled Tribe Students for studies abroad",
+    "ministry": "Ministry of Tribal Affairs",
+    "notification": new Date (2017,4,30),
+    "deadline_to_enroll": new Date (2017,5,30),
+    "desc": "The financial assistance is offered through Ministry of External Affairs",
+    "welfare":'Y',
+    "link": "http://egazette.nic.in/WriteReadData/2017/176349.pdf",
+    type: 'scholarship'
+  },
+      {
+    "scheme": "Pradhan Mantri Bhartiya Janaushadhi Pariyojana",
+    "ministry": "Ministry of Chemicals and Fertilizers",
+    "notification": new Date (2017,4,30),
+    "deadline_to_enroll": new Date (2017,5,30),
+    "desc": "",
+    "welfare":'N',
+    "link": "http://egazette.nic.in/WriteReadData/2017/176333.pdf"
+    },
+      {
+    "scheme": "Performing Arts Grant Scheme (also known as Repertory Grant Scheme)",
+    "ministry": "Ministry of Culture",
+    "notification": new Date (2017,4,30),
+    "deadline_to_enroll": new Date (2017,5,30),
+    "desc": "",
+    "welfare":'N',
+    "link": "http://egazette.nic.in/WriteReadData/2017/176355.pdf"
+  },
+  {
+    "scheme": "Scheme for Financial Assistance to Cultural Organizations with National Presence",
+    "ministry": "Ministry of Culture",
+    "notification": new Date (2017,4,30),
+    "deadline_to_enroll": new Date (2017,5,30),
+    "desc": "",
+    "welfare":'N',
+    "link": "http://egazette.nic.in/WriteReadData/2017/176355.pdf"
+  },
+  {
+    "scheme": "Artistes Pension Scheme and Welfare Fund",
+    "ministry": "Ministry of Culture",
+    "notification": new Date (2017,4,30),
+    "deadline_to_enroll": new Date (2017,5,30),
+    "desc": "",
+    "welfare":'Y',
+    "link": "http://egazette.nic.in/WriteReadData/2017/176355.pdf"
+  },
+  {
+    "scheme": "Cultural Functions and Production Grant Scheme",
+    "ministry": "Ministry of Culture",
+    "notification": new Date (2017,4,30),
+    "deadline_to_enroll": new Date (2017,5,30),
+    "desc": "",
+    "welfare":'N',
+    "link": "http://egazette.nic.in/WriteReadData/2017/176355.pdf"
+  },
+  {
+    "scheme": "Promoting International Cultural Relations",
+    "ministry": "Ministry of Culture",
+    "notification": new Date (2017,4,30),
+    "deadline_to_enroll": new Date (2017,5,30),
+    "desc": "",
+    "welfare":'N',
+    "link": "http://egazette.nic.in/WriteReadData/2017/176355.pdf"
+  },
+  {
+    "scheme": "Deendayal Antyodaya Yojana – National Urban Livelihood Mission (DAY-NULM)",
+    "ministry": "Ministry of Housing and Poverty Alleviation",
+    "notification": new Date (2017,4,26),
+    "deadline_to_enroll": new Date (2017,5,30),
+    "desc": "Aims to reduce poverty and vulnerability of the urban poor households by providing access gainful self-employment and skilled wage employment opportunities and by facilitating access to suitable spaces, institutional credit, social security, employment opportunities and skills.",
+    "welfare":'Y',
+    "link": "http://egazette.nic.in/WriteReadData/2017/176254.pdf"
+  },
+  {
+    "scheme": "Scholarship to the students of National Institute of Pharmaceutical Education and Research (NIPER)",
+    "ministry": "Ministry of Chemicals and Fertilizers",
+    "notification": new Date (2017,4,16),
+    "deadline_to_enroll": new Date (2017,5,30),
+    "desc": "Provides financial assistance in the form of scholarships, stipends or House Rent Allowances is given to the students pursuing Master of Science in Pharma or Junior Research Fellows or Senior Research Fellows (hereinafter referred to as the beneficiaries) in NIPER, for which Grants-in-Aid are given to various NIPER Institutes (hereinafter referred to as the Implementing Agency) operating across the country for implementation of the Scheme.",
+    "welfare":'Y',
+    "link": "http://egazette.nic.in/WriteReadData/2017/176026.pdf",
+    "type":"scholarship"
+  },
+  {
+    "scheme": "Short duration training programmes",
+    "ministry": "Ministry of Tourism",
+    "notification": new Date (2017,4,12),
+    "deadline_to_enroll": new Date (2017,2,31),
+    "desc": "",
+    "welfare":'Y',
+    "link": "http://egazette.nic.in/WriteReadData/2017/175940.pdf"
+  },
+  {
+    "scheme": "Atal Pension Yojana (APY)",
+    "ministry": "Ministry of Finance",
+    "notification": new Date (2017,4,11),
+    "deadline_to_enroll": new Date (2017,5,15),
+    "desc": "",
+    "welfare":'Y',
+    "link": "http://egazette.nic.in/WriteReadData/2017/175931.pdf"
+  },
+    {
+    "scheme": "National Mission on Agriculture Extension and Technology (NMAET) - Sub-Mission on Seeds and Planting Materials (SMSP) ",
+    "ministry": "Ministry of Agriculture and Farmers Welfare",
+    "notification": new Date (2017,4,9),
+    "deadline_to_enroll": new Date (2017,2,31),
+    "desc": "",
+    "welfare":'Y',
+    "link": "http://egazette.nic.in/WriteReadData/2017/175894.pdf"
+  },
+   {
+    "scheme": "Faster Adoption and Manufacturing of (Hybrid and) Electrical Vehicles in India (FAME-India)",
+    "ministry": "Ministry of Heavy Industries and Public Enterprises",
+    "notification": new Date (2017,3,25),
+    "deadline_to_enroll": new Date (2017,5,30),
+    "desc": "demand incentive (hereinafter referred to as benefit) is provided to the customers (hereinafter referred to as beneficiaries) by the registered dealers on purchase of Hybrid or Electric Vehicles and the dealers submit their claims monthly to their respective Original Equipment Manufacturers who in turn submit their claims to the Department through National Automotive Board (NAB) (hereinafter referred to as the Implementing Agency); all the States and Union territories Administrations except the States of Assam, Meghalaya and the State of Jammu & Kashmir.",
+    "link": "http://egazette.nic.in/WriteReadData/2017/175766.pdf"
+  },
+  {
+    "scheme": "Scholarship to Young Artistes in different cultural fields",
+    "ministry": "Ministry of Culture",
+    "notification": new Date (2017,3,28),
+    "deadline_to_enroll": new Date (2017,5,31),
+    "desc": "This notification shall come into effect from the date of its publication in the Official Gazette in all the States and Union Territories except the States of Assam, Meghalaya and Jammu and Kashmir.",
+    "link": "http://egazette.nic.in/WriteReadData/2017/175791.pdf",
+    "type": 'scholarship',
+    'welfare':'Y'
+  },
+  {
+    "scheme": "Fellowships to Outstanding Persons in the field of culture",
+    "ministry": "Ministry of Culture",
+    "notification": new Date (2017,3,28),
+    "deadline_to_enroll": new Date (2017,5,31),
+    "desc": "This notification shall come into effect from the date of its publication in the Official Gazette in all the States and Union Territories except the States of Assam, Meghalaya and Jammu and Kashmir.",
+    "link": "http://egazette.nic.in/WriteReadData/2017/175791.pdf",
+    "type": 'scholarship',
+    'welfare':'Y'
+  },
+  {
+    "scheme": "Tagore National Fellowship and Scholarship for Cultural Research",
+    "ministry": "Ministry of Culture",
+    "notification": new Date (2017,3,28),
+    "deadline_to_enroll": new Date (2017,5,31),
+    "desc": "This notification shall come into effect from the date of its publication in the Official Gazette in all the States and Union Territories except the States of Assam, Meghalaya and Jammu and Kashmir.",
+    "link": "http://egazette.nic.in/WriteReadData/2017/175791.pdf",
+    "type": 'scholarship',
+    'welfare':'Y'
+  },
+  {
+    "scheme": "Seekho aur Kamao Scheme",
+    "ministry": "Ministry of Minority Affairs",
+    "notification": new Date (2017,3,24),
+    "deadline_to_enroll": new Date (2017,5,30),
+    "desc": "This notification shall come into effect from the date of its publication in the Official Gazette in all the States and Union Territories except the States of Assam, Meghalaya and Jammu and Kashmir.",
+    "link": "http://egazette.nic.in/WriteReadData/2017/175792.pdf",
+    'welfare':'Y'
+  },
+  {
+    "scheme": "Public Distribution System (PDS) Kerosene and Domestic LPG Subsidy Scheme",
+    "ministry": "Ministry of Petroleum and Natural Gas",
+    "notification": new Date (2017,3,27),
+    "deadline_to_enroll": new Date (2017,8,30),
+    "desc": "This notification shall come into effect from the date of its publication in the Official Gazette in all the States and Union Territories except the States of Assam, Meghalaya and Jammu and Kashmir.",
+    "link": "http://egazette.nic.in/WriteReadData/2017/175601.pdf",
+    'welfare':'Y'
+  },
+   {
+    "scheme": "Incentive to build a Individual Household Toilet (IHHT) under Swachh Bharat Mission",
+    "ministry": "Ministry of Urban Development",
+    "notification": new Date (2017,3,18),
+    "deadline_to_enroll": new Date (2017,4,20),
+    "desc": " an incentive amount up to four thousand rupees is provided for construction of one unit of Individual Household Toilet (IHHT), which can be done by the Self Help Group, Health ward Committee, Contractor or the individuals seeking cash incentive. This notification shall come into effect from the date of its publication in the Official Gazette in all the States and Union Territories except the States of Assam, Meghalaya and Jammu and Kashmir.",
+    "link": "http://egazette.nic.in/WriteReadData/2017/175600.pdf",
+    'welfare':'Y'
+  },
+     {
+    "scheme": "National Mission on Oilseeds and Oil Palm (NMOOP)",
+    "ministry": "Ministry of Agriculture and Farmers Welfare",
+    "notification": new Date (2017,3,24),
+    "deadline_to_enroll": new Date (2017,4,31),
+    "desc": "This notification shall come into effect from the date of its publication in the Official Gazette in all the States and Union Territories except the States of Assam, Meghalaya and Jammu and Kashmir.",
+    "link": "http://egazette.nic.in/WriteReadData/2017/175677.pdf",
+    'welfare':'Y',
+    'type': 'subsidy'
+  },
+  {
+    "scheme": "Sub-Mission on Agricultural Mechanization scheme (SMAM)",
+    "ministry": "Ministry of Agriculture and Farmers Welfare",
+    "notification": new Date (2017,3,25),
+    "deadline_to_enroll": new Date (2017,8,30),
+    "desc": "a. Financial Assistance for Procurement of Agriculture Machinery and Equipment; b. Establish Farm Machinery Banks for Custom Hiring; c. Establish Hi-Tech, High Productive Equipment Hub for Custom Hiring; d. Promotion of Farm Mechanisation in selected villages; e. Financial Assistance for Promotion of Mechanized Operations/hectare Carried out Through Custom Hiring Centres, and; f. Promotion of Farm Machinery and Equipment in North-Eastern Region; This notification shall come into effect from the date of its publication in the Official Gazette in all the States and Union Territories except the States of Assam, Meghalaya and Jammu and Kashmir.",
+    "link": "http://egazette.nic.in/WriteReadData/2017/175661.pdf",
+    'welfare':'Y'
+  },
+  {
+    "scheme": "National Award for Road Safety",
+    "ministry": "Ministry of Road Transport and Highways",
+    "notification": new Date (2017,3,26),
+    "deadline_to_enroll": new Date (2017,6,31),
+    "desc": "This notification shall come into effect from the date of its publication in the Official Gazette in all the States and Union Territories except the States of Assam, Meghalaya and Jammu and Kashmir.",
+    "link": "http://egazette.nic.in/WriteReadData/2017/175654.pdf"
+  },
+    {
+    "scheme": "Scheme for the Development of Silk Industry",
+    "ministry": "Ministry of Textiles",
+    "notification": new Date (2017,3,25),
+    "deadline_to_enroll": new Date (2017,5,30),
+    "desc": "This notification shall come into effect from the date of its publication in the Official Gazette in all the States and Union Territories except the States of Assam, Meghalaya and Jammu and Kashmir.",
+    "link": "http://egazette.nic.in/WriteReadData/2017/175640.pdf",
+    'welfare':'Y',
+    'type':'subsidy'
+  },
+  {
+    "scheme": "Scheme for Providing Quality Education for Madrasas (SPQEM)",
+    "ministry": "Ministry of Human Resource Development",
+    "notification": new Date (2017,3,25),
+    "deadline_to_enroll": new Date (2017,8,30),
+    "desc": "This notification shall come into effect from the date of its publication in the Official Gazette in all the States and Union Territories except the States of Assam, Meghalaya and Jammu and Kashmir.",
+    "link": "http://egazette.nic.in/WriteReadData/2017/175554.pdf",
+    'welfare':'Y'
+  },
+  {
+    "scheme": "Scheme of Rainfed Area Development (RAD)",
+    "ministry": "Ministry of Agriculture and Farmers Welfare",
+    "notification": new Date (2017,3,18),
+    "deadline_to_enroll": new Date (2017,5,30),
+    "desc": "This notification shall come into effect from the date of its publication in the Official Gazette in all the States and Union Territories except the States of Assam, Meghalaya and Jammu and Kashmir.",
+    "link": "http://egazette.nic.in/WriteReadData/2017/175555.pdf",
+    'welfare':'Y'
+  },
+    {
+    "scheme": "(i) Pre-Matric Scholarship Scheme; (ii) Post-Matric Scholarship Scheme; (iii) Merit-Cum-Means Scholarship Scheme",
+    "ministry": "Ministry of Minority Affairs",
+    "notification": new Date (2017,3,21),
+    "deadline_to_enroll": new Date (2017,5,30),
+    "desc": "This notification shall come into effect from the date of its publication in the Official Gazette in all the States and Union Territories except the States of Assam, Meghalaya and Jammu and Kashmir.",
+    "link": "http://egazette.nic.in/WriteReadData/2017/175623.pdf",
+    'welfare':'Y',
+    'type':'scholarship'
+
+  },
   {
     "scheme": "Mahatma Gandhi National Rural Employment Guarantee Act (MGNREGA)",
     "ministry": "Ministry of Rural Development",
     "notification": new Date (2017,0,3),
-    "deadline_to_enroll": new Date (2017,2,31),
+    "deadline_to_enroll": new Date (2017,8,30),
     "desc": "Guarantees rural Indians 100 days of employment--unskilled manual jobs--for a wage. All states and union territories, except Assam, Meghalaya and Jammu and Kashmir, require an Aadhaar number to enroll people in this scheme.",
     "welfare":'Y',
     "link": "http://nrega.nic.in/netnrega/writereaddata/Circulars/2001173479.pdf",
@@ -152,7 +507,7 @@ var data = [
     "ministry": "MINISTRY OF DRINKING WATER AND SANITATION",
     "notification": new Date (2017,1,16),
     "deadline_to_enroll": new Date (2017,2,31),
-    "desc": "Provides incentive to all Below Poverty Line (BPL) households, Above Poverty Line households (APL) restricted to SCs/STs, small and marginal farmers, landless labourers with homestead, differently abled and women-headed households for the construction of bathrooms. An Aadhaar number is a mandatory for this scheme in all states and union territories except Assam, Meghalaya and Jammu and Kashmir.",
+    "desc": "Provides incentive to all Below Poverty Line (BPL) households, Above Poverty Line households (APL) restricted to SCs/STs, small and marginal farmers, landless labourers with homestead, differently abled and women-headed households for the construction of bathrooms in rural areas. An Aadhaar number is a mandatory for this scheme in all states and union territories except Assam, Meghalaya and Jammu and Kashmir.",
     "welfare":'Y',
     "link": "http://egazette.nic.in/WriteReadData/2017/174266.pdf"
   },
@@ -206,7 +561,7 @@ var data = [
     "ministry": "MINISTRY OF HUMAN RESOURCE DEVELOPMENT",
     "notification": new Date(2017,1,21),
     "deadline_to_enroll": new Date(2017,8,30),
-    "desc": "Provides assistance for the inclusive education of the disabled children in classes IX-XII. An Aadhaar number is mandatory for the same in all states and union territories except Assam, Meghalaya, Jammu and Kashmir.",
+    "desc": "Provides assistance for the inclusive education of the disabled children in classes IX-XII. Girl child with special needs can avail a Rs 200 stipend under the scheme. An Aadhaar number is mandatory for the same in all states and union territories except Assam, Meghalaya, Jammu and Kashmir.",
     "welfare":'Y',
     "link": "http://egazette.nic.in/WriteReadData/2017/174479.pdf",
     type: 'scholarship'
@@ -288,7 +643,7 @@ var data = [
     "scheme": "Mid Day Meal Scheme",
     "ministry": "Ministry of human resource development",
     "notification": new Date(2017,1,28),
-    "deadline_to_enroll": new Date(2017,5,30),
+    "deadline_to_enroll": new Date(2017,7,30),
     "desc": "The scheme provides food to children studying in classes I to VIII in government or government aided schools or Special Training Centres (STC) or Madrasas or Maqtabs supported under Sarva Shiksha Abhiyan. An Aadhaar number is mandatory to get access to food, and for the cooks involved in its preparation in all states and union territories except Assam, Meghalaya, Jammu and Kashmir.",
     "welfare":'Y',
     "link": "http://egazette.nic.in/WriteReadData/2017/174505.pdf"
@@ -481,7 +836,7 @@ var data = [
     "ministry": "MINISTRY OF AGRICULTURE AND FARMERS WELFARE",
     "notification": new Date(2017,2,10),
     "deadline_to_enroll": new Date(2017,3,1),
-    "desc": "After making a notification regarding three of its six sub-schemes a month before, the ministry made Aadhaar mandatory for the other year as well. These include - National Horticulture Mission (NHM), Horticulture Mission for North East & Himalayan States (HMNEH), National Agroforestry & Bamboo Mission (NABM).",
+    "desc": "After making a notification regarding three of its six sub-schemes a month before, the ministry made Aadhaar mandatory for the other three as well. These include - National Horticulture Mission (NHM), Horticulture Mission for North East & Himalayan States (HMNEH), National Agroforestry & Bamboo Mission (NABM).",
     "welfare":'Y',
     "link": "http://egazette.nic.in/WriteReadData/2017/174731.pdf"
   },

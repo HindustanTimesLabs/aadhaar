@@ -6,7 +6,7 @@ var _ = require('underscore')
 
 data.forEach(function(d){
   if (d.deadline_to_enroll!='NA'){
-    d.difference = Math.round(d.deadline_to_enroll - d.notification)
+    d.difference = (d.deadline_to_enroll-d.notification)/(1000 * 3600 * 24)
   } else{
     d.difference = 10000000000000000
   }
@@ -26,15 +26,15 @@ $('.employment').text(employment)
 $('.subsidy').text(subsidy)
 $('.scholarship').text(scholarship)
 
-sortedByNotification = _.sortBy(data,'notification')
+sortedByNotification = _.sortBy(data,'notification').reverse()
 sortedByDeadline = _.sortBy(data,function(d){
   if (d.deadline_to_enroll!='NA'){
     return d.deadline_to_enroll
   } else {
-    return 10000000000000000
+    return -1
   }
   
-})
+}).reverse()
 data = _.sortBy(data,'difference')
 var date_format_axis = d3.timeFormat("%d %b");
 var date_format_axis_w_yr = d3.timeFormat("%d %b %Y");
@@ -128,25 +128,38 @@ function appendThings(selected_data){
         .attr('class','diff')
         .text(function(d){
           if (d.deadline_to_enroll!='NA'){
-            return ((d.deadline_to_enroll-d.notification)/(1000 * 3600 * 24)) + ' days'
+            // var diff = (d.deadline_to_enroll-d.notification)/(1000 * 3600 * 24)
+            if (d.difference<0){
+              return (d.difference*-1) + ' days ago'
+            } else {
+              return (d.difference) + ' days'
+            }
           } else {
             return 'Deadline not specified'
           }
         })
         .style('left',function(d){
           if (d.deadline_to_enroll!='NA'){
-            return (xScale(d.deadline_to_enroll)/(xScale(new Date(2018, 2, 31))))*100+"%"
+            // var diff = (d.deadline_to_enroll-d.notification)/(1000 * 3600 * 24)
+            if (d.difference<0){
+              return (xScale(d.notification)/(xScale(new Date(2018, 2, 31))))*100+"%"
+            } else {
+              return (xScale(d.deadline_to_enroll)/(xScale(new Date(2018, 2, 31))))*100+"%"
+            }
+            
           } else {
             return (xScale(d.notification)/(xScale(new Date(2018, 2, 31))))*100+"%"
           }
         })
         .style('font-size',function(d){
-          if (d.deadline_to_enroll=='NA'){
+          // var diff = (d.deadline_to_enroll-d.notification)/(1000 * 3600 * 24)
+          if (d.deadline_to_enroll=='NA' || d.difference < 0){
             return '12px'
           }
         })
         .style('width',function(d){
-          if (d.deadline_to_enroll=='NA'){
+          // var diff = (d.deadline_to_enroll-d.notification)/(1000 * 3600 * 24)
+          if (d.deadline_to_enroll=='NA' || d.difference < 0){
             return '80px'
           }
         })
@@ -163,6 +176,18 @@ function appendThings(selected_data){
         .style('left',function(d){
           return (xScale(d.notification)/(xScale(new Date(2018, 2, 31))))*100+"%"
         })
+        .style('text-align',function(d){
+          // var diff = (d.deadline_to_enroll-d.notification)/(1000 * 3600 * 24)
+          if (d.difference<0){
+            return 'left'
+          }
+        })
+        .style('margin-left',function(d){
+          // var diff = (d.deadline_to_enroll-d.notification)/(1000 * 3600 * 24)
+          if (d.difference<0){
+            return '0'
+          }
+        })
 
   chart.append('p')
         .attr('class','annotation ann-info dd')
@@ -176,7 +201,20 @@ function appendThings(selected_data){
           }
         })
         .style('left',function(d){
+          // var diff = (d.deadline_to_enroll-d.notification)/(1000 * 3600 * 24)
           return (xScale(d.deadline_to_enroll)/(xScale(new Date(2018, 2, 31))))*100+"%"
+        })
+        .style('text-align',function(d){
+          // var diff = (d.deadline_to_enroll-d.notification)/(1000 * 3600 * 24)
+          if (d.difference<0){
+            return 'right'
+          }
+        })
+        .style('margin-left',function(d){
+          // var diff = (d.deadline_to_enroll-d.notification)/(1000 * 3600 * 24)
+          if (d.difference<0){
+            return '-75px'
+          }
         })
 
   chart.append('p')
@@ -187,16 +225,24 @@ function appendThings(selected_data){
           } else {
             return date_format_axis(d.notification)
           }
-          
         })
         .style('left',function(d){
           return (xScale(d.notification)/(xScale(new Date(2018, 2, 31))))*100+"%"
+        })
+        .style('text-align',function(d){
+          if (d.difference<0){
+            return 'left'
+          }
+        })
+        .style('margin-left',function(d){
+          if (d.difference<0){
+            return '-10px'
+          }
         })
 
   chart.append('p')
         .attr('class','annotation ann-deadline')
         .text(function(d){
-
           if (d.deadline_to_enroll!='NA'){
             if ((d.deadline_to_enroll).getYear()>117){
               return date_format_axis_w_yr(d.deadline_to_enroll)
@@ -212,6 +258,16 @@ function appendThings(selected_data){
         })
         .style('left',function(d){
           return (xScale(d.deadline_to_enroll)/(xScale(new Date(2018, 2, 31))))*100+"%"
+        })
+        .style('text-align',function(d){
+          if (d.difference<0){
+            return 'left'
+          }
+        })
+        .style('margin-left',function(d){
+          if (d.difference<0){
+            return '-30px'
+          }
         })
 
   lines.append('p')
@@ -313,5 +369,7 @@ $('.copy.intro span').on('click',function(){
 
 function toTitleCase(str)
 {
-    return str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
+    return str.replace(/\w\S*/g, function(txt){
+      return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+    });
 }
