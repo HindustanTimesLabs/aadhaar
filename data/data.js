@@ -1,5 +1,14 @@
 var data = [
 {
+    "scheme": "Death Certificate",
+    "ministry": "Ministry of Home Affairs",
+    "notification": new Date (2017,7,4),
+    "deadline_to_enroll": new Date (2017,9,1),
+    "desc": "",
+    "welfare":'N',
+    "link": "http://www.hindustantimes.com/india-news/aadhaar-made-mandatory-for-registration-of-death/story-UGLATSW7TsIjO5ZZYJr1xJ.html"
+  },
+{
     "scheme": "Bank accounts",
     "ministry": "MINISTRY OF ELECTRONICS AND INFORMATION TECHNOLOGY",
     "notification": new Date (2017,6,14),
