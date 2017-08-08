@@ -1,12 +1,21 @@
 var data = [
 {
+    "scheme": "Pradhan Mantri Matru Vandana Yojana (PMMVY)",
+    "ministry": "MINISTRY OF WOMEN AND CHILD DEVELOPMENT",
+    "notification": new Date (2017,7,4),
+    "deadline_to_enroll": 'NA',
+    "desc": "Provides partial compensation for the wage loss of preganant and lactating mothers. In cases where the parents don't have an Aadhaar, they'll have to register for one within 90 days of registration at Anganwadi Centers or Primary Health Centres. Aadhaar is mandatory for this scheme in all states and union territories, except Assam, Meghalaya and Jammu and Kashmir.",
+    "welfare":'Y',
+    "link": "http://egazette.nic.in/WriteReadData/2017/177847.pdf"
+  },
+{
     "scheme": "Death Certificate",
     "ministry": "Ministry of Home Affairs",
     "notification": new Date (2017,7,4),
     "deadline_to_enroll": new Date (2017,9,1),
-    "desc": "",
+    "desc": "It is mandatory for residents of all states except Jammu and Kashmir, Assam and Meghalaya for which a date will be notified separately.",
     "welfare":'N',
-    "link": "http://www.hindustantimes.com/india-news/aadhaar-made-mandatory-for-registration-of-death/story-UGLATSW7TsIjO5ZZYJr1xJ.html"
+    "link": "http://pib.nic.in/newsite/erelease.aspx?relid=169622"
   },
 {
     "scheme": "Bank accounts",
