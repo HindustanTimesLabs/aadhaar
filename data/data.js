@@ -709,7 +709,7 @@ var data = [
     "scheme": "Compensation for Bhopal Gas victims",
     "ministry": "MINISTRY OF CHEMICALS AND FERTILIZERS",
     "notification": new Date(2017,2,6),
-    "deadline_to_enroll": new Date(2017,5,30),
+    "deadline_to_enroll": new Date(2017,8,30),
     "desc": "Aadhaar is mandatory to receive the cash compensation given to victims in the Bhopal Gas tragedy.",
     "welfare":'Y',
     "link": "http://egazette.nic.in/WriteReadData/2017/174626.pdf"
@@ -812,7 +812,7 @@ var data = [
     "scheme": "National Means-cum-Merit Scholarship Scheme (NMMSS)",
     "ministry": "Ministry of human resource development",
     "notification": new Date(2017,1,15),
-    "deadline_to_enroll": new Date(2017,5,30),
+    "deadline_to_enroll": new Date(2017,8,30),
     "desc": "The scheme offers scholarships to 9-12 class students from economically weaker sections in government schools. Children availing scholarships require Aadhaar in all states except Assam, Meghalaya and Jammu and Kashmir.",
     "welfare":'Y',
     "link": "http://egazette.nic.in/WriteReadData/2017/174187.pdf",
