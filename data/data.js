@@ -860,8 +860,8 @@ var data = [
     "scheme": "Scholarship Scheme of Satyajit Ray Films and Television Institute, Kolkata",
     "ministry": "Ministry of Information and Broadcasting",
     "notification": new Date(2017,2,6),
-    "deadline_to_enroll": new Date(2017,3,30),
-    "desc": "An Aadhaar number is mandatory to get benefits under the scheme in all states except Assam, Meghalaya, Jammu and Kashmir.",
+    "deadline_to_enroll": new Date(2017,8,30),
+    "desc": "An Aadhaar number is mandatory to get benefits under the scheme in all states except Assam, Meghalaya, Jammu and Kashmir. The deadline to enroll was extended in a later notification dated September 5, 2017. ",
     "welfare":'Y',
     "link": "http://egazette.nic.in/WriteReadData/2017/174653.pdf",
     type: 'scholarship'
@@ -871,8 +871,8 @@ var data = [
     "scheme": "Journalist Welfare Scheme through Press Information Bureau",
     "ministry": "Ministry of Information and Broadcasting",
     "notification": new Date(2017,2,6),
-    "deadline_to_enroll": new Date(2017,3,30),
-    "desc": "The scheme provides one time ex-gratia relief on urgent basis to journalists and their families. An Aadhaar number is mandatory to avail benefits in all states and union territories except Assam, Meghalaya, Jammu and Kashmir.",
+    "deadline_to_enroll": new Date(2017,8,30),
+    "desc": "The scheme provides one time ex-gratia relief on urgent basis to journalists and their families. The deadline to enroll was extended in a later notification dated September 5, 2017. An Aadhaar number is mandatory to avail benefits in all states and union territories except Assam, Meghalaya, Jammu and Kashmir.",
     "welfare":'Y',
     "link": "http://egazette.nic.in/WriteReadData/2017/174653.pdf"
   },
@@ -977,10 +977,10 @@ var data = [
     "scheme": "Mobile phone connection",
     "ministry": "",
     "notification": new Date(2017,2,23),
-    "deadline_to_enroll": "NA",
+    "deadline_to_enroll": new Date(2018,1,6),
     "desc": "",
     "welfare":'N',
-    "link": "http://www.hindustantimes.com/india-news/soon-aadhaar-verification-for-existing-mobile-phone-users/story-zvxDJTYXWBJ5R1Q375QrjL.html"
+    "link": "https://scroll.in/latest/832705/all-mobile-phone-numbers-must-be-linked-to-aadhaar-by-february-2018-says-centre"
   },
   {
     "scheme": "Schemes to aid entrepreneurs from a SC background",
